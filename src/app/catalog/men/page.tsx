@@ -40,7 +40,7 @@ export default function MensCatalogPage() {
             </div>
 
             {/* Card info */}
-            <div className="mt-3">
+            <div className="mt-3 overflow-hidden">
               <p className="text-xs font-medium text-foreground truncate">
                 {fabric.name}
               </p>

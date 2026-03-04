@@ -41,9 +41,9 @@ export default function CatalogPage() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="mt-4">
-                <p className="text-xs uppercase tracking-widest text-muted">{fabric.composition}</p>
-                <h3 className="mt-1 text-sm font-medium text-foreground">{fabric.name}</h3>
+              <div className="mt-4 overflow-hidden">
+                <p className="text-xs uppercase tracking-widest text-muted truncate">{fabric.composition}</p>
+                <h3 className="mt-1 text-sm font-medium text-foreground truncate">{fabric.name}</h3>
                 <p className="mt-1 text-xs text-gold">from ${STANDARD_PRICE}</p>
               </div>
             </Link>

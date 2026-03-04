@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --brand-cream: #ede8de;
+  --brand-gold: #a07b35;
+  --brand-text: #2c2418;
+  --brand-muted: #7a6b54;
+  --brand-border: #d4c9b5;
+}
+
+@theme inline {
+  --color-background: var(--brand-cream);
+  --color-foreground: var(--brand-text);
+  --color-gold: var(--brand-gold);
+  --color-muted: var(--brand-muted);
+  --color-brand-border: var(--brand-border);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-cormorant);
+}
+
+@keyframes mogra-spin-in {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.45);
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(360deg) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-mogra-spin {
+  animation: mogra-spin-in 1.8s cubic-bezier(0.34, 1.15, 0.64, 1) forwards;
+}
+
+body {
+  background: var(--brand-cream);
+  color: var(--brand-text);
+}

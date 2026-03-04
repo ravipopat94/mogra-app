@@ -146,15 +146,14 @@ export interface Fabric {
 export const fabrics: Fabric[] = [
   {
     id: "f1",
-    slug: "blue-summer-linen",
-    name: "Blue Summer Linen",
+    slug: "black-white-ikat",
+    name: "Black & White Handwoven Ikat",
     description:
-      "A light, breathable linen perfect for hot city summers and breezy beach days. Softens beautifully with every wash.",
-    composition: "100% Linen",
+      "A striking handwoven ikat in monochrome — bold diamond motifs with the characteristic feathered edges of traditional resist-dyeing. Each piece carries the subtle irregularities of the handloom.",
+    composition: "Handwoven Cotton Ikat",
     images: [
-      "https://picsum.photos/seed/fab-bsl-1/800/1000",
-      "https://picsum.photos/seed/fab-bsl-2/800/1000",
-      "https://picsum.photos/seed/fab-bsl-3/800/1000",
+      "/fabrics/ikat-bw-1.png",
+      "/fabrics/ikat-bw-2.png",
     ],
     featured: true,
   },

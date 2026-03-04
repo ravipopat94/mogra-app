@@ -15,27 +15,6 @@ export default function CatalogPage() {
         </h1>
       </div>
 
-      {/* Women's Section */}
-      <section className="mx-auto max-w-7xl px-8 py-20">
-        <div className="mb-12 flex items-end justify-between">
-          <div>
-            <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Her</p>
-            <h2 className="font-serif text-3xl font-light tracking-wide text-foreground">Women</h2>
-          </div>
-        </div>
-        <div className="py-16 text-center border border-brand-border">
-          <p className="font-serif text-xl font-light tracking-wide text-foreground">
-            Fabrics Coming Soon
-          </p>
-          <p className="mt-3 text-xs uppercase tracking-widest text-muted">
-            Our women&apos;s collection is on its way.
-          </p>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="border-t border-brand-border mx-8" />
-
       {/* Men's Section — fabric cards */}
       <section className="mx-auto max-w-7xl px-8 py-20">
         <div className="mb-12 flex items-end justify-between">
@@ -69,6 +48,27 @@ export default function CatalogPage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="border-t border-brand-border mx-8" />
+
+      {/* Women's Section */}
+      <section className="mx-auto max-w-7xl px-8 py-20">
+        <div className="mb-12 flex items-end justify-between">
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Her</p>
+            <h2 className="font-serif text-3xl font-light tracking-wide text-foreground">Women</h2>
+          </div>
+        </div>
+        <div className="py-16 text-center border border-brand-border">
+          <p className="font-serif text-xl font-light tracking-wide text-foreground">
+            Fabrics Coming Soon
+          </p>
+          <p className="mt-3 text-xs uppercase tracking-widest text-muted">
+            Our women&apos;s collection is on its way.
+          </p>
         </div>
       </section>
     </div>

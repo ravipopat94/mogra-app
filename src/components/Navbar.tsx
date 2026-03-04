@@ -11,22 +11,19 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-background border-b border-brand-border">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
 
-        {/* Flower icon — cropped from full logo, links to home */}
+        {/* Flower icon — cropped from full logo via background-image, links to home */}
         <Link href="/" aria-label="Mogra Home" className="flex-shrink-0">
-          <div style={{ width: 44, height: 48, overflow: "hidden", position: "relative" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo.png"
-              alt=""
-              style={{
-                width: 130,
-                height: "auto",
-                position: "absolute",
-                top: -3,
-                left: -40,
-              }}
-            />
-          </div>
+          <div
+            style={{
+              width: 42,
+              height: 46,
+              backgroundImage: "url(/logo.png)",
+              backgroundSize: "300% auto",
+              backgroundPosition: "50% 8%",
+              backgroundRepeat: "no-repeat",
+              mixBlendMode: "multiply",
+            }}
+          />
         </Link>
 
         {/* Desktop Nav */}

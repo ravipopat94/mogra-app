@@ -183,45 +183,6 @@ export const fabrics: Fabric[] = [
     ],
     featured: true,
   },
-  {
-    id: "f4",
-    slug: "ivory-muslin",
-    name: "Ivory Muslin",
-    description:
-      "An airy, semi-sheer muslin with a warm ivory tone. Effortlessly elegant for warm evenings and festive wear.",
-    composition: "100% Cotton Muslin",
-    images: [
-      "https://picsum.photos/seed/fab-im-1/800/1000",
-      "https://picsum.photos/seed/fab-im-2/800/1000",
-    ],
-    featured: false,
-  },
-  {
-    id: "f5",
-    slug: "sage-linen-blend",
-    name: "Sage Linen Blend",
-    description:
-      "A muted sage green in a linen-cotton blend — relaxed yet polished, with a natural texture that improves with age.",
-    composition: "55% Linen, 45% Cotton",
-    images: [
-      "https://picsum.photos/seed/fab-slb-1/800/1000",
-      "https://picsum.photos/seed/fab-slb-2/800/1000",
-    ],
-    featured: false,
-  },
-  {
-    id: "f6",
-    slug: "terracotta-handloom",
-    name: "Terracotta Handloom",
-    description:
-      "A rich terracotta handloom with a subtle texture. Each bolt is unique — no two shirts will be identical.",
-    composition: "100% Handloom Cotton",
-    images: [
-      "https://picsum.photos/seed/fab-th-1/800/1000",
-      "https://picsum.photos/seed/fab-th-2/800/1000",
-    ],
-    featured: false,
-  },
 ];
 
 export function getFabricBySlug(slug: string): Fabric | undefined {

@@ -68,6 +68,39 @@ export default async function ShirtProductPage({
 
   return (
     <div className="flex-1 w-full">
+
+      {/* ── How it works — step guide ── */}
+      <div className="border-b border-brand-border">
+        <div className="mx-auto max-w-7xl px-8 py-12">
+          <p className="mb-10 text-center text-xs uppercase tracking-widest text-muted">
+            How it works
+          </p>
+
+          <div className="flex items-start justify-center flex-wrap gap-0">
+            {steps.map((step, i) => (
+              <div key={step.label} className="flex items-start">
+                {/* Step */}
+                <div className="flex flex-col items-center gap-3 w-32 sm:w-36">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold text-gold">
+                    <step.Icon />
+                  </div>
+                  <p className="text-xs text-center leading-relaxed text-foreground">
+                    {step.label}
+                  </p>
+                </div>
+
+                {/* Arrow between steps */}
+                {i < steps.length - 1 && (
+                  <div className="flex items-center mt-5 mx-1 text-gold text-lg select-none">
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-8 py-16">
 
         {/* Breadcrumb */}
@@ -102,38 +135,6 @@ export default async function ShirtProductPage({
 
             {/* Configurator */}
             <ShirtConfigurator fabricName={fabric.name} />
-          </div>
-        </div>
-      </div>
-
-      {/* ── How it works — step guide ── */}
-      <div className="border-t border-brand-border mt-8">
-        <div className="mx-auto max-w-7xl px-8 py-16">
-          <p className="mb-12 text-center text-xs uppercase tracking-widest text-muted">
-            How it works
-          </p>
-
-          <div className="flex items-start justify-center flex-wrap gap-0">
-            {steps.map((step, i) => (
-              <div key={step.label} className="flex items-start">
-                {/* Step */}
-                <div className="flex flex-col items-center gap-3 w-32 sm:w-36">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold text-gold">
-                    <step.Icon />
-                  </div>
-                  <p className="text-xs text-center leading-relaxed text-foreground">
-                    {step.label}
-                  </p>
-                </div>
-
-                {/* Arrow between steps */}
-                {i < steps.length - 1 && (
-                  <div className="flex items-center mt-5 mx-1 text-gold text-lg select-none">
-                    →
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </div>

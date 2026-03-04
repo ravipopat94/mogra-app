@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProductCard from "@/components/ProductCard";
-import { getFeaturedProducts, getFeaturedFabrics, STANDARD_PRICE } from "@/data/products";
+import { getFeaturedFabrics, STANDARD_PRICE } from "@/data/products";
 
 export default function CatalogPage() {
-  const featuredWomen = getFeaturedProducts("women").slice(0, 3);
   const featuredFabrics = getFeaturedFabrics().slice(0, 3);
 
   return (
@@ -24,17 +22,14 @@ export default function CatalogPage() {
             <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Her</p>
             <h2 className="font-serif text-3xl font-light tracking-wide text-foreground">Women</h2>
           </div>
-          <Link
-            href="/catalog/women"
-            className="text-xs uppercase tracking-widest text-gold hover:underline underline-offset-4 transition-all"
-          >
-            View All →
-          </Link>
         </div>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredWomen.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
+        <div className="py-16 text-center border border-brand-border">
+          <p className="font-serif text-xl font-light tracking-wide text-foreground">
+            Fabrics Coming Soon
+          </p>
+          <p className="mt-3 text-xs uppercase tracking-widest text-muted">
+            Our women&apos;s collection is on its way.
+          </p>
         </div>
       </section>
 

@@ -172,15 +172,14 @@ export const fabrics: Fabric[] = [
   },
   {
     id: "f3",
-    slug: "navy-chambray",
-    name: "Navy Chambray",
+    slug: "summer-blue-linen",
+    name: "Summer Blue Linen",
     description:
-      "A soft, lightweight chambray in deep navy. Versatile and refined — as comfortable at dinner as it is at the office.",
-    composition: "100% Cotton",
+      "A crisp, breathable linen in a calm summer blue — the kind of fabric that gets better with every wear. Effortless for warm days, sharp enough for evenings.",
+    composition: "100% Linen",
     images: [
-      "https://picsum.photos/seed/fab-nc-1/800/1000",
-      "https://picsum.photos/seed/fab-nc-2/800/1000",
-      "https://picsum.photos/seed/fab-nc-3/800/1000",
+      "/fabrics/linen-blue-1.png",
+      "/fabrics/linen-blue-2.png",
     ],
     featured: true,
   },

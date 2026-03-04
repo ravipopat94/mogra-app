@@ -159,15 +159,14 @@ export const fabrics: Fabric[] = [
   },
   {
     id: "f2",
-    slug: "white-oxford-cotton",
-    name: "White Oxford Cotton",
+    slug: "gray-chikankari",
+    name: "Gray Hand-Woven Chikankari",
     description:
-      "A classic Oxford weave in crisp white — structured enough for formal occasions, relaxed enough for daily wear.",
-    composition: "100% Cotton",
+      "A refined gray fabric featuring the delicate floral embroidery of traditional Chikankari — a craft perfected in Lucknow over centuries. Lightweight and breathable, with a quiet elegance that works as well at a formal dinner as it does at a summer wedding.",
+    composition: "Hand-Woven Cotton Chikankari",
     images: [
-      "https://picsum.photos/seed/fab-woc-1/800/1000",
-      "https://picsum.photos/seed/fab-woc-2/800/1000",
-      "https://picsum.photos/seed/fab-woc-3/800/1000",
+      "/fabrics/chikankari-gray-1.png",
+      "/fabrics/chikankari-gray-2.png",
     ],
     featured: true,
   },

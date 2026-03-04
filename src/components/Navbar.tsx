@@ -11,19 +11,11 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-background border-b border-brand-border">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
 
-        {/* Flower icon — cropped from full logo via background-image, links to home */}
-        <Link href="/" aria-label="Mogra Home" className="flex-shrink-0">
-          <div
-            style={{
-              width: 42,
-              height: 46,
-              backgroundImage: "url(/logo.png)",
-              backgroundSize: "300% auto",
-              backgroundPosition: "50% 8%",
-              backgroundRepeat: "no-repeat",
-              mixBlendMode: "multiply",
-            }}
-          />
+        {/* Home icon */}
+        <Link href="/" aria-label="Mogra Home" className="flex-shrink-0 text-foreground hover:text-gold transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-6 0h8" />
+          </svg>
         </Link>
 
         {/* Desktop Nav */}

@@ -42,7 +42,7 @@ export default function TestimonialsPage() {
         {testimonials.map((t) => (
           <div key={t.id} className="border border-brand-border overflow-hidden">
             {/* Photo */}
-            <div className="relative aspect-[4/5] w-full">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
                 src={t.image}
                 alt={t.firstName}

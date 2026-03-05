@@ -183,6 +183,19 @@ export const fabrics: Fabric[] = [
     ],
     featured: true,
   },
+  {
+    id: "f4",
+    slug: "white-cotton-eyelet",
+    name: "White Cotton Eyelet",
+    description:
+      "A clean, airy white cotton with delicate eyelet embroidery — small perforated patterns that let light and air through. Fresh and refined, it works beautifully for warm weather and festive occasions alike.",
+    composition: "100% Cotton Eyelet",
+    images: [
+      "/fabrics/eyelet-white-1.png",
+      "/fabrics/eyelet-white-2.png",
+    ],
+    featured: true,
+  },
 ];
 
 export function getFabricBySlug(slug: string): Fabric | undefined {

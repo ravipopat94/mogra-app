@@ -135,7 +135,7 @@ export default async function ShirtProductPage({
             <div className="border-t border-brand-border my-6" />
 
             {/* Configurator */}
-            <ShirtConfigurator fabricName={fabric.name} />
+            <ShirtConfigurator fabricName={fabric.name} fabricSlug={fabric.slug} />
           </div>
         </div>
       </div>

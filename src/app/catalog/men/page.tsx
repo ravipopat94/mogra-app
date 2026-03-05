@@ -4,7 +4,7 @@ import { fabrics, STANDARD_PRICE } from "@/data/products";
 
 export default function MensCatalogPage() {
   return (
-    <div className="flex-1 mx-auto max-w-7xl w-full px-8 py-16">
+    <div className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-8 py-10 sm:py-16">
       {/* Header */}
       <div className="mb-14">
         <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Him</p>

@@ -71,16 +71,17 @@ export default async function ShirtProductPage({
 
       {/* ── How it works — step guide ── */}
       <div className="border-b border-brand-border">
-        <div className="mx-auto max-w-7xl px-8 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-10 sm:py-12">
           <p className="mb-10 text-center text-xs uppercase tracking-widest text-muted">
             How it works
           </p>
 
-          <div className="flex items-start justify-center flex-wrap gap-0">
+          {/* 2×2 grid on mobile, horizontal row on sm+ */}
+          <div className="grid grid-cols-2 gap-8 sm:flex sm:items-start sm:justify-center sm:gap-0">
             {steps.map((step, i) => (
               <div key={step.label} className="flex items-start">
                 {/* Step */}
-                <div className="flex flex-col items-center gap-3 w-32 sm:w-36">
+                <div className="flex flex-col items-center gap-3 w-full sm:w-32 md:w-36">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold text-gold">
                     <step.Icon />
                   </div>
@@ -89,9 +90,9 @@ export default async function ShirtProductPage({
                   </p>
                 </div>
 
-                {/* Arrow between steps */}
+                {/* Arrow — desktop only */}
                 {i < steps.length - 1 && (
-                  <div className="flex items-center mt-5 mx-1 text-gold text-lg select-none">
+                  <div className="hidden sm:flex items-center mt-5 mx-1 text-gold text-lg select-none">
                     →
                   </div>
                 )}
@@ -101,7 +102,7 @@ export default async function ShirtProductPage({
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-8 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 py-10 sm:py-16">
 
         {/* Breadcrumb */}
         <div className="mb-12 flex items-center gap-3 text-xs uppercase tracking-widest text-muted">

@@ -51,9 +51,9 @@ const testimonials = [
 
 export default function TestimonialsPage() {
   return (
-    <div className="flex-1 mx-auto max-w-7xl w-full px-8 py-20">
+    <div className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-8 py-12 sm:py-20">
       {/* Header */}
-      <div className="mb-20 text-center">
+      <div className="mb-12 sm:mb-20 text-center">
         <p className="mb-3 text-xs uppercase tracking-widest text-muted">
           What our customers say
         </p>
@@ -67,7 +67,7 @@ export default function TestimonialsPage() {
         {testimonials.map((t) => (
           <div
             key={t.id}
-            className="flex flex-col gap-6 border border-brand-border p-8"
+            className="flex flex-col gap-6 border border-brand-border p-6 sm:p-8"
           >
             {/* Quote mark */}
             <span className="font-serif text-4xl leading-none text-gold">&ldquo;</span>

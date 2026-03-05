@@ -8,7 +8,7 @@ export default function CatalogPage() {
   return (
     <div className="flex-1">
       {/* Page header */}
-      <div className="border-b border-brand-border px-8 py-14 text-center">
+      <div className="border-b border-brand-border px-4 sm:px-8 py-10 sm:py-14 text-center">
         <p className="mb-3 text-xs uppercase tracking-widest text-muted">Collections</p>
         <h1 className="font-serif text-4xl font-light tracking-wide text-foreground">
           Product Catalog
@@ -16,7 +16,7 @@ export default function CatalogPage() {
       </div>
 
       {/* Men's Section — fabric cards */}
-      <section className="mx-auto max-w-7xl px-8 py-20">
+      <section className="mx-auto max-w-7xl px-4 sm:px-8 py-12 sm:py-20">
         <div className="mb-12 flex items-end justify-between">
           <div>
             <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Him</p>
@@ -52,10 +52,10 @@ export default function CatalogPage() {
       </section>
 
       {/* Divider */}
-      <div className="border-t border-brand-border mx-8" />
+      <div className="border-t border-brand-border mx-4 sm:mx-8" />
 
       {/* Women's Section */}
-      <section className="mx-auto max-w-7xl px-8 py-20">
+      <section className="mx-auto max-w-7xl px-4 sm:px-8 py-12 sm:py-20">
         <div className="mb-12 flex items-end justify-between">
           <div>
             <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Her</p>

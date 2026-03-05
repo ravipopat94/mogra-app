@@ -26,8 +26,8 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex-1 mx-auto max-w-7xl w-full px-8 py-20">
-      <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
+    <div className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-8 py-12 sm:py-20">
+      <div className="grid grid-cols-1 gap-12 sm:gap-20 lg:grid-cols-2">
 
         {/* Left: Info */}
         <div>

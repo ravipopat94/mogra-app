@@ -60,16 +60,16 @@ export default function Navbar() {
               <div className="absolute top-full left-0 pt-3 w-36">
                 <div className="bg-background border border-brand-border shadow-sm">
                   <Link
-                    href="/catalog/women"
+                    href="/catalog/men"
                     className="block px-5 py-3 text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
                   >
-                    Women
+                    Men
                   </Link>
                   <Link
-                    href="/catalog/men"
+                    href="/catalog/women"
                     className="block px-5 py-3 text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors border-t border-brand-border"
                   >
-                    Men
+                    Women
                   </Link>
                 </div>
               </div>
@@ -131,18 +131,18 @@ export default function Navbar() {
                 Product Catalog
               </span>
               <Link
-                href="/catalog/women"
-                className="pl-4 text-xs tracking-widest uppercase text-muted hover:text-gold transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Women
-              </Link>
-              <Link
                 href="/catalog/men"
                 className="pl-4 text-xs tracking-widest uppercase text-muted hover:text-gold transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Men
+              </Link>
+              <Link
+                href="/catalog/women"
+                className="pl-4 text-xs tracking-widest uppercase text-muted hover:text-gold transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                Women
               </Link>
             </div>
             <Link

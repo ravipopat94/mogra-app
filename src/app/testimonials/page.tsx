@@ -45,10 +45,10 @@ export default function TestimonialsPage() {
       {/* Header */}
       <div className="mb-12 sm:mb-20 text-center">
         <p className="mb-3 text-xs uppercase tracking-widest text-muted">
-          What our customers say
+          Our community
         </p>
         <h1 className="font-serif text-4xl font-light tracking-wide text-foreground">
-          Testimonials
+          Mogra Community
         </h1>
       </div>
 

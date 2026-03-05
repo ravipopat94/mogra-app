@@ -38,7 +38,7 @@ export default function Footer() {
                 Men
               </Link>
               <Link href="/testimonials" className="text-sm text-foreground hover:text-gold transition-colors">
-                Testimonials
+                Mogra Community
               </Link>
               <Link href="/contact" className="text-sm text-foreground hover:text-gold transition-colors">
                 Contact Us

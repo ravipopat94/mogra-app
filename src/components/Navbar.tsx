@@ -81,7 +81,7 @@ export default function Navbar() {
             href="/testimonials"
             className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
           >
-            Testimonials
+            Mogra Community
           </Link>
 
           <Link
@@ -163,7 +163,7 @@ export default function Navbar() {
               className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              Testimonials
+              Mogra Community
             </Link>
             <Link
               href="/contact"

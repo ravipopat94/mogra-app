@@ -6,18 +6,21 @@ const testimonials = [
     firstName: "Ravi",
     design: "Jaipuri Safari Cotton Print",
     image: "/community/ravi.jpg",
+    imageScale: 1,
   },
   {
     id: 2,
     firstName: "Amar",
     design: "Indigo Floral Block Print",
     image: "/community/amar.jpg",
+    imageScale: 1.5,
   },
   {
     id: 3,
     firstName: "Ishan",
     design: "White Cotton Eyelet",
     image: "/community/ishan.jpg",
+    imageScale: 1,
   },
 ];
 
@@ -44,7 +47,8 @@ export default function TestimonialsPage() {
                 src={t.image}
                 alt={t.firstName}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform"
+                style={{ transform: `scale(${t.imageScale})` }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>

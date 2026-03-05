@@ -3,39 +3,21 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    firstName: "Priya",
-    design: "Blush Anarkali",
-    image: "https://picsum.photos/seed/person-1/600/750",
+    firstName: "Ravi",
+    design: "Jaipuri Safari Cotton Print",
+    image: "/community/ravi.jpg",
   },
   {
     id: 2,
-    firstName: "Ananya",
-    design: "Ivory Linen Co-ord",
-    image: "https://picsum.photos/seed/person-2/600/750",
+    firstName: "Amar",
+    design: "Indigo Floral Block Print",
+    image: "/community/amar.jpg",
   },
   {
     id: 3,
-    firstName: "Rohan",
-    design: "Onyx Embroidered Kurta",
-    image: "https://picsum.photos/seed/person-3/600/750",
-  },
-  {
-    id: 4,
-    firstName: "Kavitha",
-    design: "Mogra White Kurta",
-    image: "https://picsum.photos/seed/person-4/600/750",
-  },
-  {
-    id: 5,
-    firstName: "Arjun",
-    design: "Navy Block Print Kurta",
-    image: "https://picsum.photos/seed/person-5/600/750",
-  },
-  {
-    id: 6,
-    firstName: "Shreya",
-    design: "Terracotta Block Print Dress",
-    image: "https://picsum.photos/seed/person-6/600/750",
+    firstName: "Ishan",
+    design: "White Cotton Eyelet",
+    image: "/community/ishan.jpg",
   },
 ];
 

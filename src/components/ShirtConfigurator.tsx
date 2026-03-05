@@ -118,7 +118,7 @@ export default function ShirtConfigurator({ fabricName }: Props) {
         href={whatsappUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        className="mb-3 flex w-full items-center justify-center gap-2.5 py-3.5 text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-90"
+        className="mb-3 flex w-full items-center justify-center gap-2.5 px-4 py-3.5 text-xs uppercase tracking-widest text-white transition-opacity hover:opacity-90"
         style={{ backgroundColor: "#25D366" }}
       >
         {/* WhatsApp icon */}
@@ -132,7 +132,7 @@ export default function ShirtConfigurator({ fabricName }: Props) {
       {/* ── Email button ── */}
       <a
         href={emailUrl()}
-        className="flex w-full items-center justify-center gap-2.5 border border-foreground py-3.5 text-xs uppercase tracking-widest text-foreground transition hover:bg-foreground hover:text-background"
+        className="flex w-full items-center justify-center gap-2.5 px-4 border border-foreground py-3.5 text-xs uppercase tracking-widest text-foreground transition hover:bg-foreground hover:text-background"
       >
         {/* Email icon */}
         <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

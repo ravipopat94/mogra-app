@@ -48,7 +48,7 @@ export default function TestimonialsPage() {
           Our community
         </p>
         <h1 className="font-serif text-4xl font-light tracking-wide text-foreground">
-          Mogra Community
+          Mogra in everyday life
         </h1>
       </div>
 

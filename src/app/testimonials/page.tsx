@@ -1,51 +1,41 @@
+import Image from "next/image";
+
 const testimonials = [
   {
     id: 1,
-    name: "Priya Sharma",
-    location: "Mumbai",
-    quote:
-      "The Blush Anarkali is absolutely stunning. The fabric, the embroidery, the fit — every detail is perfect. I wore it to my cousin's wedding and received so many compliments.",
-    product: "Blush Anarkali",
+    firstName: "Priya",
+    design: "Blush Anarkali",
+    image: "https://picsum.photos/seed/person-1/600/750",
   },
   {
     id: 2,
-    name: "Ananya Krishnan",
-    location: "Bangalore",
-    quote:
-      "Mogra has restored my faith in Indian fashion. The Ivory Linen Co-ord is so beautifully made — you can feel the quality the moment you hold it. Will be ordering again.",
-    product: "Ivory Linen Co-ord",
+    firstName: "Ananya",
+    design: "Ivory Linen Co-ord",
+    image: "https://picsum.photos/seed/person-2/600/750",
   },
   {
     id: 3,
-    name: "Rohan Mehta",
-    location: "Delhi",
-    quote:
-      "The Onyx Embroidered Kurta is exactly what I was looking for — understated yet festive. The silver thread work is exquisite. Highly recommend Mogra for any occasion.",
-    product: "Onyx Embroidered Kurta",
+    firstName: "Rohan",
+    design: "Onyx Embroidered Kurta",
+    image: "https://picsum.photos/seed/person-3/600/750",
   },
   {
     id: 4,
-    name: "Kavitha Nair",
-    location: "Chennai",
-    quote:
-      "I've been looking for a white kurta that feels premium without being over-the-top. The Mogra White Kurta is exactly that. The embroidery at the neckline is so delicate and thoughtful.",
-    product: "Mogra White Kurta",
+    firstName: "Kavitha",
+    design: "Mogra White Kurta",
+    image: "https://picsum.photos/seed/person-4/600/750",
   },
   {
     id: 5,
-    name: "Arjun Kapoor",
-    location: "Pune",
-    quote:
-      "Ordered the Navy Block Print Kurta for a friend's sangeet. The quality is remarkable for the price point. Ships fast, packed beautifully, and the kurta itself is gorgeous.",
-    product: "Navy Block Print Kurta",
+    firstName: "Arjun",
+    design: "Navy Block Print Kurta",
+    image: "https://picsum.photos/seed/person-5/600/750",
   },
   {
     id: 6,
-    name: "Shreya Gupta",
-    location: "Hyderabad",
-    quote:
-      "The Terracotta Block Print Dress is a work of art. You can tell it's been handcrafted with real care. It's the kind of piece that feels heirloom-worthy.",
-    product: "Terracotta Block Print Dress",
+    firstName: "Shreya",
+    design: "Terracotta Block Print Dress",
+    image: "https://picsum.photos/seed/person-6/600/750",
   },
 ];
 
@@ -63,25 +53,24 @@ export default function TestimonialsPage() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((t) => (
-          <div
-            key={t.id}
-            className="flex flex-col gap-6 border border-brand-border p-6 sm:p-8"
-          >
-            {/* Quote mark */}
-            <span className="font-serif text-4xl leading-none text-gold">&ldquo;</span>
+          <div key={t.id} className="border border-brand-border overflow-hidden">
+            {/* Photo */}
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={t.image}
+                alt={t.firstName}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
 
-            {/* Quote text */}
-            <p className="flex-1 text-sm leading-relaxed text-muted">{t.quote}</p>
-
-            {/* Product tag */}
-            <p className="text-xs uppercase tracking-widest text-gold">{t.product}</p>
-
-            {/* Divider */}
-            <div className="border-t border-brand-border pt-5">
-              <p className="text-sm font-medium text-foreground">{t.name}</p>
-              <p className="mt-1 text-xs text-muted">{t.location}</p>
+            {/* Name + design */}
+            <div className="px-6 py-5">
+              <p className="text-sm font-medium text-foreground">{t.firstName}</p>
+              <p className="mt-1 text-xs text-muted">{t.design}</p>
             </div>
           </div>
         ))}

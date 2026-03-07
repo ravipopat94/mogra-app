@@ -18,6 +18,9 @@ export default function HomePage() {
         <p className="text-[10px] tracking-[0.35em] uppercase text-muted">
           boutique custom apparel for everyday life
         </p>
+        <p className="text-[10px] tracking-[0.3em] uppercase text-muted underline underline-offset-4 decoration-muted/50">
+          shop now →
+        </p>
       </Link>
     </div>
   );

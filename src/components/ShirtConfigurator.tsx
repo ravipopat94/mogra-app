@@ -11,6 +11,42 @@ import {
 } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
+const COLLAR_INFO: Record<string, { description: string; svg: React.ReactNode }> = {
+  "Standard Collar": {
+    description: "Classic fold-over collar with pointed tips — the everyday dress shirt look.",
+    svg: (
+      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2,52 L2,28 L14,18 L28,25 L42,18 L54,28 L54,52" />
+        <path d="M14,18 L11,6 L21,14 L28,25" />
+        <path d="M42,18 L45,6 L35,14 L28,25" />
+        <path d="M11,6 Q28,2 45,6" />
+      </svg>
+    ),
+  },
+  "Chinese Collar": {
+    description: "A minimal standing band with no fold — clean and modern.",
+    svg: (
+      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2,52 L2,28 L14,20 L24,20 L24,12 Q28,8 32,12 L32,20 L42,20 L54,28 L54,52" />
+        <path d="M24,20 Q23,14 24,12" />
+        <path d="M32,20 Q33,14 32,12" />
+        <path d="M24,12 Q28,6 32,12" />
+      </svg>
+    ),
+  },
+  "Cuban Collar": {
+    description: "Wide open camp-style collar that lies flat — relaxed and effortless.",
+    svg: (
+      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2,52 L2,28 L14,16 L26,32 L30,32 L42,16 L54,28 L54,52" />
+        <path d="M14,16 L10,4 L26,32" />
+        <path d="M42,16 L46,4 L30,32" />
+        <path d="M10,4 Q28,10 46,4" />
+      </svg>
+    ),
+  },
+};
+
 interface Props {
   fabricName: string;
   fabricSlug: string;
@@ -22,6 +58,7 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
   const [size, setSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+  const [showCollarGuide, setShowCollarGuide] = useState(false);
 
   const { addItem } = useCart();
   const router = useRouter();
@@ -52,7 +89,39 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
 
       {/* ── Collar ── */}
       <div className="mb-5">
-        <p className="mb-2.5 text-xs uppercase tracking-widest text-muted">Collar</p>
+        <div className="flex items-center gap-2 mb-2.5">
+          <p className="text-xs uppercase tracking-widest text-muted">Collar</p>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setShowCollarGuide((v) => !v)}
+              className="flex h-4 w-4 items-center justify-center rounded-full border border-muted text-muted text-[9px] hover:border-foreground hover:text-foreground transition-colors"
+              aria-label="Collar style guide"
+            >
+              ?
+            </button>
+            {showCollarGuide && (
+              <>
+                {/* Backdrop — click outside to close */}
+                <div className="fixed inset-0 z-10" onClick={() => setShowCollarGuide(false)} />
+                {/* Tooltip card */}
+                <div className="absolute left-0 top-6 z-20 w-72 bg-background border border-brand-border shadow-md p-4 flex flex-col gap-4">
+                  {Object.entries(COLLAR_INFO).map(([name, info]) => (
+                    <div key={name} className="flex items-start gap-3">
+                      <div className="shrink-0 w-14 h-11 text-foreground">
+                        {info.svg}
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-foreground">{name}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-muted">{info.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
         <div className="flex flex-wrap gap-2">
           {COLLAR_STYLES.map((c) => (
             <button

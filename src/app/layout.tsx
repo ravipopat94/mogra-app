@@ -25,11 +25,13 @@ export const metadata: Metadata = {
     url: "https://mogra-app.vercel.app",
     siteName: "Mogra",
     type: "website",
+    images: [{ url: "https://mogra-app.vercel.app/logo.png", width: 1316, height: 960, alt: "Mogra" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Mogra",
     description: "Boutique custom apparel for everyday life. Made-to-order shirts crafted from handpicked fabrics.",
+    images: ["https://mogra-app.vercel.app/logo.png"],
   },
 };
 

@@ -41,11 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${cormorant.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${cormorant.variable} antialiased flex flex-col h-[100dvh] overflow-hidden`}
       >
         <CartProvider>
           <Navbar />
-          <main className="flex-1 flex flex-col">{children}</main>
+          <main className="flex-1 flex flex-col overflow-y-auto">{children}</main>
         </CartProvider>
       </body>
     </html>

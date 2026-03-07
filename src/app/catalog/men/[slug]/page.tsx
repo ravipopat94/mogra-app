@@ -104,13 +104,21 @@ export default async function ShirtProductPage({
 
       <div className="mx-auto max-w-7xl px-4 sm:px-8 py-10 sm:py-16">
 
-        {/* Breadcrumb */}
-        <div className="mb-12 flex items-center gap-3 text-xs uppercase tracking-widest text-muted">
-          <Link href="/catalog" className="hover:text-gold transition-colors">Catalog</Link>
-          <span>/</span>
-          <Link href="/catalog/men" className="hover:text-gold transition-colors">Men</Link>
-          <span>/</span>
-          <span className="text-foreground">{fabric.name}</span>
+        {/* Back link + breadcrumb */}
+        <div className="mb-12 flex items-center justify-between">
+          <Link
+            href="/catalog/men"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted hover:text-gold transition-colors"
+          >
+            ← Back to Men&apos;s Collection
+          </Link>
+          <div className="hidden sm:flex items-center gap-3 text-xs uppercase tracking-widest text-muted">
+            <Link href="/catalog" className="hover:text-gold transition-colors">Catalog</Link>
+            <span>/</span>
+            <Link href="/catalog/men" className="hover:text-gold transition-colors">Men</Link>
+            <span>/</span>
+            <span className="text-foreground">{fabric.name}</span>
+          </div>
         </div>
 
         {/* Two-column layout */}

@@ -128,9 +128,18 @@ export default async function ShirtProductPage({
             <h1 className="mb-1 font-serif text-4xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
-            <p className="mb-6 text-sm leading-relaxed text-muted">
+            <p className="mb-4 text-sm leading-relaxed text-muted">
               {fabric.description}
             </p>
+
+            {fabric.styledImages && fabric.styledImages.length > 0 && (
+              <Link
+                href={`/catalog/men/${fabric.slug}/styled`}
+                className="inline-block mb-6 text-xs uppercase tracking-widest text-muted underline underline-offset-4 hover:text-gold transition-colors"
+              >
+                See it styled →
+              </Link>
+            )}
 
             <div className="border-t border-brand-border my-6" />
 

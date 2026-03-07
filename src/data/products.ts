@@ -141,6 +141,7 @@ export interface Fabric {
   composition: string;
   images: string[]; // first image used as catalog card thumbnail
   featured: boolean;
+  styledImages?: string[]; // AI-generated lookbook photos — enables "See it styled" link
 }
 
 export const fabrics: Fabric[] = [
@@ -193,6 +194,11 @@ export const fabrics: Fabric[] = [
     images: [
       "/fabrics/eyelet-white-1.png",
       "/fabrics/eyelet-white-2.png",
+    ],
+    styledImages: [
+      "/styled/white-cotton-eyelet/1.png",
+      "/styled/white-cotton-eyelet/2.jpg",
+      "/styled/white-cotton-eyelet/3.png",
     ],
     featured: true,
   },

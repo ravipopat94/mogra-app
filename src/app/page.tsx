@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="flex-1 flex items-center justify-center">
-      <Link href="/catalog">
+      <Link href="/catalog" className="flex flex-col items-center gap-5">
         <div className="animate-mogra-spin">
           <Image
             src="/logo.png"
@@ -15,6 +15,9 @@ export default function HomePage() {
             priority
           />
         </div>
+        <p className="text-[10px] tracking-[0.35em] uppercase text-muted">
+          boutique custom apparel for everyday life
+        </p>
       </Link>
     </div>
   );

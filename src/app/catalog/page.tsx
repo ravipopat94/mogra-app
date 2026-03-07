@@ -29,7 +29,7 @@ export default function CatalogPage() {
             View All →
           </Link>
         </div>
-        <p className="mb-10 text-sm leading-relaxed text-muted max-w-lg">
+        <p className="mb-10 text-sm leading-relaxed text-muted">
           Each shirt is made to order. Choose your fabric, then customise your collar, sleeve length, and size.
         </p>
         <div className="grid grid-cols-2 gap-4">

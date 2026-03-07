@@ -11,7 +11,7 @@ export default function MensCatalogPage() {
         <h1 className="font-serif text-4xl font-light tracking-wide text-foreground">
           Men&apos;s Shirts
         </h1>
-        <p className="mt-4 text-sm leading-relaxed text-muted max-w-lg">
+        <p className="mt-4 text-sm leading-relaxed text-muted">
           Each shirt is made to order. Choose your fabric, then customise your
           collar, sleeve length, and size.
         </p>

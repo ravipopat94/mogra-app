@@ -169,6 +169,11 @@ export const fabrics: Fabric[] = [
       "/fabrics/chikankari-gray-1.png",
       "/fabrics/chikankari-gray-2.png",
     ],
+    styledImages: [
+      "/styled/gray-chikankari/1.png",
+      "/styled/gray-chikankari/2.png",
+      "/styled/gray-chikankari/3.png",
+    ],
     featured: true,
   },
   {

@@ -156,6 +156,11 @@ export const fabrics: Fabric[] = [
       "/fabrics/ikat-bw-1.png",
       "/fabrics/ikat-bw-2.png",
     ],
+    styledImages: [
+      "/styled/black-white-ikat/1.png",
+      "/styled/black-white-ikat/2.png",
+      "/styled/black-white-ikat/3.png",
+    ],
     featured: true,
   },
   {

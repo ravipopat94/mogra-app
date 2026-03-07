@@ -32,7 +32,7 @@ export default function CatalogPage() {
         <p className="mb-10 text-sm leading-relaxed text-muted">
           Each shirt is made to order. Choose your fabric, then customise your collar, sleeve length, and size.
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {featuredFabrics.map((fabric) => (
             <Link key={fabric.id} href={`/catalog/men/${fabric.slug}`} className="group block">
               <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
@@ -41,7 +41,7 @@ export default function CatalogPage() {
                   alt={fabric.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, 50vw"
+                  sizes="(max-width: 640px) 50vw, 25vw"
                 />
               </div>
               <div className="mt-3 overflow-hidden">
@@ -65,7 +65,7 @@ export default function CatalogPage() {
             <h2 className="font-serif text-3xl font-light tracking-wide text-foreground">Women</h2>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="aspect-square border border-brand-border flex flex-col items-center justify-center gap-2" style={{ backgroundColor: "#e5dfd4" }}>
               <p className="font-serif text-sm font-light tracking-wide text-foreground">Coming Soon</p>

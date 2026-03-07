@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const WHATSAPP_NUMBER = "919718568455";
-const CONTACT_EMAIL = "ravipopat94@gmail.com";
+const CONTACT_EMAIL = "team@shopmogra.com";
 
 function buildMessage(form: { name: string; email: string; subject: string; message: string }) {
   return (

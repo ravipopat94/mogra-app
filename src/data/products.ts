@@ -216,4 +216,4 @@ export const STANDARD_PRICE = 50;
 export const CUSTOM_PRICE = 70;
 
 export const WHATSAPP_NUMBER = "919718568455";
-export const ORDER_EMAIL = "ravipopat94@gmail.com";
+export const ORDER_EMAIL = "team@shopmogra.com";

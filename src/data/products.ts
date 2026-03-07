@@ -150,7 +150,7 @@ export const fabrics: Fabric[] = [
     slug: "black-white-ikat",
     name: "Black & White Handwoven Ikat",
     description:
-      "A striking handwoven ikat in monochrome — bold diamond motifs with the characteristic feathered edges of traditional resist-dyeing. Each piece carries the subtle irregularities of the handloom.",
+      "Ikat is one of the most labour-intensive weaving traditions in the world. Before a single thread touches the loom, bundles of yarn are hand-tied and dip-dyed in precise sequences to form the pattern. When the threads are finally woven together, the design reveals itself — and the characteristic feathered edges aren't a flaw. They're the signature of the handloom: proof that every centimetre was made by a person, not a machine.",
     composition: "Handwoven Cotton Ikat",
     images: [
       "/fabrics/ikat-bw-1.png",
@@ -167,8 +167,8 @@ export const fabrics: Fabric[] = [
     id: "f2",
     slug: "gray-chikankari",
     name: "Gray Hand-Woven Chikankari",
-    description:
-      "A refined gray fabric featuring the delicate floral embroidery of traditional Chikankari — a craft perfected in Lucknow over centuries. Lightweight and breathable, with a quiet elegance that works as well at a formal dinner as it does at a summer wedding.",
+
+      "Chikankari is a 400-year-old hand-embroidery tradition from Lucknow, believed to have been brought to India by Nur Jahan, wife of Emperor Jahangir. Artisans embroider each piece entirely by hand using up to 32 distinct stitches — including the delicate shadow stitch that gives Chikankari its characteristic subtle texture. A single garment can take days to complete. Lightweight and breathable, with a quiet elegance that works as well at a formal dinner as it does at a summer wedding.",
     composition: "Hand-Woven Cotton Chikankari",
     images: [
       "/fabrics/chikankari-gray-1.png",
@@ -186,7 +186,7 @@ export const fabrics: Fabric[] = [
     slug: "summer-blue-linen",
     name: "Summer Blue Linen",
     description:
-      "A crisp, breathable linen in a calm summer blue — the kind of fabric that gets better with every wear. Effortless for warm days, sharp enough for evenings.",
+      "Linen is one of the few fabrics that genuinely improves with age — the more you wear and wash it, the softer it becomes. Made from flax fibres, it's naturally moisture-wicking and temperature-regulating, keeping you cool when it's warm and comfortable when it isn't. The slight texture and natural slub aren't imperfections; they're the character of the fibre. This particular shade is the kind of calm, easy blue that works just as well tucked into trousers as it does worn loose on a warm evening.",
     composition: "100% Linen",
     images: [
       "/fabrics/linen-blue-1.png",
@@ -204,7 +204,7 @@ export const fabrics: Fabric[] = [
     slug: "white-cotton-eyelet",
     name: "White Cotton Eyelet",
     description:
-      "A clean, airy white cotton with delicate eyelet embroidery — small perforated patterns that let light and air through. Fresh and refined, it works beautifully for warm weather and festive occasions alike.",
+      "Eyelet is cotton with intention. Holes are precisely cut into the woven fabric, then each opening is finished with embroidery stitching around the edge — preventing fraying and turning a functional detail into a decorative one. The result is a fabric that breathes exceptionally well while looking refined. Clean, airy, and effortlessly suited to warm weather and festive occasions alike.",
     composition: "100% Cotton Eyelet",
     images: [
       "/fabrics/eyelet-white-1.png",

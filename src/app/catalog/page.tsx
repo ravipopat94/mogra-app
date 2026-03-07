@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getFeaturedFabrics, STANDARD_PRICE } from "@/data/products";
 
 export default function CatalogPage() {
-  const featuredFabrics = getFeaturedFabrics().slice(0, 3);
+  const featuredFabrics = getFeaturedFabrics();
 
   return (
     <div className="flex-1">

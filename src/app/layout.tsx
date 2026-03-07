@@ -17,9 +17,20 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Mogra | Contemporary Indian Fashion",
-  description:
-    "Celebrating Indian craftsmanship with contemporary silhouettes. Shop kurtas, co-ords, anarkalis, and more.",
+  title: "Mogra",
+  description: "Boutique custom apparel for everyday life. Made-to-order shirts crafted from handpicked fabrics.",
+  openGraph: {
+    title: "Mogra",
+    description: "Boutique custom apparel for everyday life. Made-to-order shirts crafted from handpicked fabrics.",
+    url: "https://mogra-app.vercel.app",
+    siteName: "Mogra",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Mogra",
+    description: "Boutique custom apparel for everyday life. Made-to-order shirts crafted from handpicked fabrics.",
+  },
 };
 
 export default function RootLayout({

@@ -154,7 +154,7 @@ export const fabrics: Fabric[] = [
     composition: "Handwoven Cotton Ikat",
     images: [
       "/fabrics/ikat-bw-1.png",
-      "/fabrics/ikat-bw-2.png",
+      "/fabrics/ikat-bw-2b.png",
     ],
     styledImages: [
       "/styled/black-white-ikat/1.png",
@@ -167,12 +167,12 @@ export const fabrics: Fabric[] = [
     id: "f2",
     slug: "gray-chikankari",
     name: "Gray Hand-Woven Chikankari",
-
+    description:
       "Chikankari is a 400-year-old hand-embroidery tradition from Lucknow, believed to have been brought to India by Nur Jahan, wife of Emperor Jahangir. Artisans embroider each piece entirely by hand using up to 32 distinct stitches — including the delicate shadow stitch that gives Chikankari its characteristic subtle texture. A single garment can take days to complete. Lightweight and breathable, with a quiet elegance that works as well at a formal dinner as it does at a summer wedding.",
     composition: "Hand-Woven Cotton Chikankari",
     images: [
       "/fabrics/chikankari-gray-1.png",
-      "/fabrics/chikankari-gray-2.png",
+      "/fabrics/chikankari-gray-2b.png",
     ],
     styledImages: [
       "/styled/gray-chikankari/1.png",
@@ -190,7 +190,7 @@ export const fabrics: Fabric[] = [
     composition: "100% Linen",
     images: [
       "/fabrics/linen-blue-1.png",
-      "/fabrics/linen-blue-2.png",
+      "/fabrics/linen-blue-2b.png",
     ],
     styledImages: [
       "/styled/summer-blue-linen/1.jpg",
@@ -208,7 +208,7 @@ export const fabrics: Fabric[] = [
     composition: "100% Cotton Eyelet",
     images: [
       "/fabrics/eyelet-white-1.png",
-      "/fabrics/eyelet-white-2.png",
+      "/fabrics/eyelet-white-2b.png",
     ],
     styledImages: [
       "/styled/white-cotton-eyelet/1.png",

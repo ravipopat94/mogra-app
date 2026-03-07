@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { fabrics, getFabricBySlug } from "@/data/products";
+import StyledGallery from "@/components/StyledGallery";
 
 export async function generateStaticParams() {
   return fabrics
@@ -46,21 +46,8 @@ export default async function StyledPage({
           </p>
         </div>
 
-        {/* Photo grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          {fabric.styledImages.map((src, i) => (
-            <div key={i} className="break-inside-avoid overflow-hidden">
-              <Image
-                src={src}
-                alt={`${fabric.name} styled look ${i + 1}`}
-                width={800}
-                height={1000}
-                className="w-full object-cover"
-                priority={i === 0}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Photo grid with lightbox */}
+        <StyledGallery images={fabric.styledImages} fabricName={fabric.name} />
 
         {/* CTA */}
         <div className="mt-14 border-t border-brand-border pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

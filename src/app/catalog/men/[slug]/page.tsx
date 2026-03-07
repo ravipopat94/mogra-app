@@ -136,6 +136,16 @@ export default async function ShirtProductPage({
 
             {/* Configurator */}
             <ShirtConfigurator fabricName={fabric.name} fabricSlug={fabric.slug} />
+
+            <div className="mt-6 border-t border-brand-border pt-5">
+              <p className="text-xs leading-relaxed text-muted">
+                Something else in mind?{" "}
+                <Link href="/contact" className="text-foreground underline underline-offset-4 hover:text-gold transition-colors">
+                  Get in touch
+                </Link>
+                {" "}— we love bringing bespoke ideas to life.
+              </p>
+            </div>
           </div>
         </div>
       </div>

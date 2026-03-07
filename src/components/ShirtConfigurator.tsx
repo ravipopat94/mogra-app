@@ -15,33 +15,51 @@ const COLLAR_INFO: Record<string, { description: string; svg: React.ReactNode }>
   "Standard Collar": {
     description: "Classic fold-over collar with pointed tips — the everyday dress shirt look.",
     svg: (
-      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2,52 L2,28 L14,18 L28,25 L42,18 L54,28 L54,52" />
-        <path d="M14,18 L11,6 L21,14 L28,25" />
-        <path d="M42,18 L45,6 L35,14 L28,25" />
-        <path d="M11,6 Q28,2 45,6" />
+      <svg viewBox="0 0 56 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        {/* Shirt body */}
+        <path d="M 4,58 L 4,26 L 16,14 L 40,14 L 52,26 L 52,58 Z" />
+        {/* Center placket */}
+        <line x1="28" y1="28" x2="28" y2="58" />
+        {/* Left collar leaf — outer edge to pointed tip, inner edge back to V */}
+        <path d="M 16,14 L 7,6 L 22,22 L 28,28" />
+        {/* Right collar leaf — mirror */}
+        <path d="M 40,14 L 49,6 L 34,22 L 28,28" />
+        {/* Collar neckband across the back */}
+        <path d="M 16,14 Q 28,11 40,14" />
       </svg>
     ),
   },
   "Chinese Collar": {
     description: "A minimal standing band with no fold — clean and modern.",
     svg: (
-      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2,52 L2,28 L14,20 L24,20 L24,12 Q28,8 32,12 L32,20 L42,20 L54,28 L54,52" />
-        <path d="M24,20 Q23,14 24,12" />
-        <path d="M32,20 Q33,14 32,12" />
-        <path d="M24,12 Q28,6 32,12" />
+      <svg viewBox="0 0 56 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        {/* Shirt body */}
+        <path d="M 4,58 L 4,26 L 16,14 L 40,14 L 52,26 L 52,58 Z" />
+        {/* Center placket */}
+        <line x1="28" y1="14" x2="28" y2="58" />
+        {/* Left band — rises from neckline, open gap at front centre */}
+        <path d="M 20,14 L 20,8 Q 24,6 27,7" />
+        {/* Right band — mirror, small gap between x=27 and x=29 */}
+        <path d="M 36,14 L 36,8 Q 32,6 29,7" />
+        {/* Base of band across shirt neckline */}
+        <path d="M 20,14 Q 28,12 36,14" />
       </svg>
     ),
   },
   "Cuban Collar": {
     description: "Wide open camp-style collar that lies flat — relaxed and effortless.",
     svg: (
-      <svg viewBox="0 0 56 52" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2,52 L2,28 L14,16 L26,32 L30,32 L42,16 L54,28 L54,52" />
-        <path d="M14,16 L10,4 L26,32" />
-        <path d="M42,16 L46,4 L30,32" />
-        <path d="M10,4 Q28,10 46,4" />
+      <svg viewBox="0 0 56 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        {/* Shirt body */}
+        <path d="M 4,58 L 4,26 L 16,14 L 40,14 L 52,26 L 52,58 Z" />
+        {/* Center placket — starts below the deep V */}
+        <line x1="28" y1="38" x2="28" y2="58" />
+        {/* Left wide lapel — lies flat on chest */}
+        <path d="M 16,14 L 8,8 L 28,38" />
+        {/* Right wide lapel — mirror */}
+        <path d="M 40,14 L 48,8 L 28,38" />
+        {/* Back collar neckline */}
+        <path d="M 8,8 Q 28,5 48,8" />
       </svg>
     ),
   },

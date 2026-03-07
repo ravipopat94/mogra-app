@@ -182,6 +182,11 @@ export const fabrics: Fabric[] = [
       "/fabrics/linen-blue-1.png",
       "/fabrics/linen-blue-2.png",
     ],
+    styledImages: [
+      "/styled/summer-blue-linen/1.jpg",
+      "/styled/summer-blue-linen/2.png",
+      "/styled/summer-blue-linen/3.png",
+    ],
     featured: true,
   },
   {

@@ -4,14 +4,14 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="flex-1 flex items-center justify-center">
-      <Link href="/catalog" className="flex flex-col items-center gap-5">
+      <Link href="/catalog" className="flex flex-col items-center gap-3 sm:gap-5">
         <div className="animate-mogra-spin">
           <Image
             src="/logo.png"
             alt="Mogra"
             width={1316}
             height={960}
-            className="w-80 sm:w-96 md:w-[30rem]"
+            className="w-64 sm:w-96 md:w-[30rem]"
             priority
           />
         </div>

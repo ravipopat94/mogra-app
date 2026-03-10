@@ -71,40 +71,38 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
       <div className="mb-5">
         <div className="flex items-center gap-2 mb-2.5">
           <p className="text-xs uppercase tracking-widest text-muted">Collar</p>
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setShowCollarGuide(true)}
+            onMouseLeave={() => setShowCollarGuide(false)}
+          >
             <button
               type="button"
-              onClick={() => setShowCollarGuide((v) => !v)}
               className="flex h-4 w-4 items-center justify-center rounded-full border border-muted text-muted text-[9px] hover:border-foreground hover:text-foreground transition-colors"
               aria-label="Collar style guide"
             >
               ?
             </button>
             {showCollarGuide && (
-              <>
-                {/* Backdrop — click outside to close */}
-                <div className="fixed inset-0 z-10" onClick={() => setShowCollarGuide(false)} />
-                {/* Tooltip card */}
-                <div className="absolute left-0 top-6 z-20 w-72 bg-background border border-brand-border shadow-md p-4 flex flex-col gap-4">
-                  {Object.entries(COLLAR_INFO).map(([name, info]) => (
-                    <div key={name} className="flex items-start gap-3">
-                      <div className="shrink-0 w-14 h-14">
-                        <Image
-                          src={info.image}
-                          alt={name}
-                          width={56}
-                          height={56}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <div>
-                        <p className="text-xs font-medium text-foreground">{name}</p>
-                        <p className="mt-0.5 text-xs leading-relaxed text-muted">{info.description}</p>
-                      </div>
+              <div className="absolute left-0 top-6 z-20 w-80 bg-background border border-brand-border shadow-md p-4 flex flex-col gap-5">
+                {Object.entries(COLLAR_INFO).map(([name, info]) => (
+                  <div key={name} className="flex items-center gap-4">
+                    <div className="shrink-0 w-20 h-20">
+                      <Image
+                        src={info.image}
+                        alt={name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                  ))}
-                </div>
-              </>
+                    <div>
+                      <p className="text-xs font-medium text-foreground">{name}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-muted">{info.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>

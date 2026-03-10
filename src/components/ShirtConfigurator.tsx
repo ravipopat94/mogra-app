@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import {
   COLLAR_STYLES,
   SLEEVE_LENGTHS,
@@ -11,61 +12,18 @@ import {
 } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
-const COLLAR_INFO: Record<string, { description: string; svg: React.ReactNode }> = {
+const COLLAR_INFO: Record<string, { description: string; image: string }> = {
   "Standard Collar": {
     description: "Classic fold-over collar with pointed tips — the everyday dress shirt look.",
-    svg: (
-      <svg viewBox="0 0 60 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {/* Shirt body */}
-        <path d="M 4,54 L 4,26 L 18,14 L 42,14 L 56,26 L 56,54 Z" />
-        {/* Center placket from V bottom to hem */}
-        <line x1="30" y1="28" x2="30" y2="54" />
-        {/* Left collar leaf: neck edge → pointed tip → inner fold → V centre */}
-        <path d="M 18,14 L 6,6 L 22,24 L 30,28" />
-        {/* Right collar leaf: mirror */}
-        <path d="M 42,14 L 54,6 L 38,24 L 30,28" />
-        {/* Collar neckband across the back of neck */}
-        <path d="M 18,14 Q 30,12 42,14" />
-      </svg>
-    ),
+    image: "/collars/standard-collar.png",
   },
   "Chinese Collar": {
     description: "A minimal standing band with no fold — clean and modern.",
-    svg: (
-      <svg viewBox="0 0 60 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {/* Shirt body */}
-        <path d="M 4,54 L 4,26 L 18,14 L 42,14 L 56,26 L 56,54 Z" />
-        {/* Center placket full length */}
-        <line x1="30" y1="14" x2="30" y2="54" />
-        {/* Left collar band: rises from neckline, curves inward leaving a front gap */}
-        <path d="M 22,14 L 22,8 Q 26,6 27,7" />
-        {/* Right collar band: mirror */}
-        <path d="M 38,14 L 38,8 Q 34,6 33,7" />
-        {/* Band base curve across neckline */}
-        <path d="M 22,14 Q 30,12 38,14" />
-        {/* Button dots down placket */}
-        <circle cx="30" cy="22" r="1.5" fill="currentColor" stroke="none" />
-        <circle cx="30" cy="32" r="1.5" fill="currentColor" stroke="none" />
-        <circle cx="30" cy="42" r="1.5" fill="currentColor" stroke="none" />
-      </svg>
-    ),
+    image: "/collars/chinese-collar.png",
   },
   "Cuban Collar": {
     description: "Wide open camp-style collar that lies flat — relaxed and effortless.",
-    svg: (
-      <svg viewBox="0 0 60 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {/* Shirt body */}
-        <path d="M 4,54 L 4,26 L 18,14 L 42,14 L 56,26 L 56,54 Z" />
-        {/* Center placket — visible only below the deep V opening */}
-        <line x1="30" y1="38" x2="30" y2="54" />
-        {/* Left wide lapel: shoulder → tip → sweeps to deep V centre */}
-        <path d="M 18,14 L 8,8 L 30,38" />
-        {/* Right wide lapel: mirror */}
-        <path d="M 42,14 L 52,8 L 30,38" />
-        {/* Back collar neckline */}
-        <path d="M 8,8 Q 30,5 52,8" />
-      </svg>
-    ),
+    image: "/collars/cuban-collar.png",
   },
 };
 
@@ -130,8 +88,14 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
                 <div className="absolute left-0 top-6 z-20 w-72 bg-background border border-brand-border shadow-md p-4 flex flex-col gap-4">
                   {Object.entries(COLLAR_INFO).map(([name, info]) => (
                     <div key={name} className="flex items-start gap-3">
-                      <div className="shrink-0 w-14 h-11 text-foreground">
-                        {info.svg}
+                      <div className="shrink-0 w-14 h-14">
+                        <Image
+                          src={info.image}
+                          alt={name}
+                          width={56}
+                          height={56}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <div>
                         <p className="text-xs font-medium text-foreground">{name}</p>

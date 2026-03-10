@@ -17,6 +17,14 @@ function buildMessage(form: { name: string; email: string; subject: string; mess
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [copied, setCopied] = useState(false);
+
+  function copyToClipboard() {
+    const text = `To: ${CONTACT_EMAIL}\nSubject: Mogra Enquiry: ${form.subject}\n\n${buildMessage(form)}`;
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  }
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -134,6 +142,46 @@ export default function ContactPage() {
           </svg>
           Send your message via Email
         </a>
+
+        {/* Divider */}
+        <div className="flex items-center gap-3">
+          <div className="h-px flex-1 bg-brand-border" />
+          <span className="text-xs uppercase tracking-widest text-muted">or</span>
+          <div className="h-px flex-1 bg-brand-border" />
+        </div>
+
+        {/* Copy to clipboard */}
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={copyToClipboard}
+            disabled={!canSend}
+            className={`flex w-full items-center justify-center gap-2.5 px-4 py-4 text-xs uppercase tracking-widest border transition-colors ${
+              copied
+                ? "border-gold text-gold"
+                : canSend
+                ? "border-brand-border text-muted hover:border-foreground hover:text-foreground cursor-pointer"
+                : "border-brand-border text-muted opacity-40 cursor-not-allowed"
+            }`}
+          >
+            {copied ? (
+              <>✓ Copied to clipboard</>
+            ) : (
+              <>
+                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Copy message to clipboard
+              </>
+            )}
+          </button>
+          {canSend && (
+            <p className="text-center text-xs text-muted">
+              Then paste it into a new email and send to{" "}
+              <span className="text-foreground select-all font-medium">team@shopmogra.com</span>
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

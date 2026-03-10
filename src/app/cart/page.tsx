@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { WHATSAPP_NUMBER, ORDER_EMAIL } from "@/data/products";
@@ -24,11 +25,19 @@ function buildOrderMessage(items: ReturnType<typeof useCart>["items"], total: nu
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalItems, totalPrice } = useCart();
+  const [copied, setCopied] = useState(false);
 
   const message = buildOrderMessage(items, totalPrice);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   const emailUrl = `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent("Mogra Shirt Order")}&body=${encodeURIComponent(message)}`;
+
+  function copyToClipboard() {
+    const text = `To: ${ORDER_EMAIL}\nSubject: Mogra Shirt Order\n\n${message}`;
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  }
 
   if (items.length === 0) {
     return (
@@ -150,6 +159,41 @@ export default function CartPage() {
         </svg>
         Send Order via Email
       </a>
+
+      {/* Divider */}
+      <div className="flex items-center gap-3">
+        <div className="h-px flex-1 bg-brand-border" />
+        <span className="text-xs uppercase tracking-widest text-muted">or</span>
+        <div className="h-px flex-1 bg-brand-border" />
+      </div>
+
+      {/* Copy to clipboard */}
+      <div className="flex flex-col gap-3">
+        <button
+          onClick={copyToClipboard}
+          className={`flex w-full items-center justify-center gap-2.5 px-4 py-4 text-xs uppercase tracking-widest border transition-colors ${
+            copied
+              ? "border-gold text-gold"
+              : "border-brand-border text-muted hover:border-foreground hover:text-foreground cursor-pointer"
+          }`}
+        >
+          {copied ? (
+            <>✓ Copied to clipboard</>
+          ) : (
+            <>
+              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Copy order to clipboard
+            </>
+          )}
+        </button>
+        <p className="text-center text-xs text-muted">
+          Then paste it into a new email and send to{" "}
+          <span className="text-foreground select-all font-medium">team@shopmogra.com</span>
+        </p>
+      </div>
     </div>
   );
 }

@@ -88,7 +88,6 @@ export default function ContactPage() {
             <option value="">Select a subject</option>
             <option>Order enquiry</option>
             <option>Sizing help</option>
-            <option>Returns &amp; exchanges</option>
             <option>Collaboration</option>
             <option>Other</option>
           </select>

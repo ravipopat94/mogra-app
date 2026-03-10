@@ -87,13 +87,13 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
               <div className="absolute left-0 top-6 z-20 w-80 bg-background border border-brand-border shadow-md p-4 flex flex-col gap-5">
                 {Object.entries(COLLAR_INFO).map(([name, info]) => (
                   <div key={name} className="flex items-center gap-4">
-                    <div className="shrink-0 w-20 h-20">
+                    <div className="shrink-0 w-20 h-20 overflow-hidden">
                       <Image
                         src={info.image}
                         alt={name}
                         width={80}
                         height={80}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain scale-[1.8]"
                       />
                     </div>
                     <div>

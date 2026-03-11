@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
@@ -39,6 +39,23 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [showCollarGuide, setShowCollarGuide] = useState(false);
+  const collarGuideRef = useRef<HTMLDivElement>(null);
+
+  // Close tooltip when tapping outside (mobile)
+  useEffect(() => {
+    if (!showCollarGuide) return;
+    const handler = (e: MouseEvent | TouchEvent) => {
+      if (!collarGuideRef.current?.contains(e.target as Node)) {
+        setShowCollarGuide(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [showCollarGuide]);
 
   const { addItem } = useCart();
   const router = useRouter();
@@ -72,12 +89,14 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
         <div className="flex items-center gap-2 mb-2.5">
           <p className="text-xs uppercase tracking-widest text-muted">Collar</p>
           <div
+            ref={collarGuideRef}
             className="relative"
             onMouseEnter={() => setShowCollarGuide(true)}
             onMouseLeave={() => setShowCollarGuide(false)}
           >
             <button
               type="button"
+              onClick={(e) => { e.stopPropagation(); setShowCollarGuide((v) => !v); }}
               className="flex h-4 w-4 items-center justify-center rounded-full border border-muted text-muted text-[9px] hover:border-foreground hover:text-foreground transition-colors"
               aria-label="Collar style guide"
             >

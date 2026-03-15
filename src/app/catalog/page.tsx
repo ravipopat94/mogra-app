@@ -34,22 +34,33 @@ export default function CatalogPage() {
         </p>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {featuredFabrics.map((fabric) => (
-            <Link key={fabric.id} href={`/catalog/men/${fabric.slug}`} className="group block">
-              <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
-                <Image
-                  src={fabric.images[0]}
-                  alt={fabric.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, 25vw"
-                />
-              </div>
-              <div className="mt-3 overflow-hidden">
-                <p className="text-xs uppercase tracking-widest text-muted truncate">{fabric.composition}</p>
-                <h3 className="mt-1 text-xs font-medium text-foreground truncate">{fabric.name}</h3>
-                <p className="mt-1 text-xs text-gold">from ${STANDARD_PRICE}</p>
-              </div>
-            </Link>
+            <div key={fabric.id} className="group">
+              <Link href={`/catalog/men/${fabric.slug}`} className="block">
+                <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
+                  <Image
+                    src={fabric.images[0]}
+                    alt={fabric.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="mt-3 overflow-hidden">
+                  <p className="text-xs uppercase tracking-widest text-muted truncate">{fabric.composition}</p>
+                  <h3 className="mt-1 text-xs font-medium text-foreground truncate">{fabric.name}</h3>
+                  <p className="mt-1 text-xs text-gold">from ${STANDARD_PRICE}</p>
+                </div>
+              </Link>
+
+              {fabric.styledImages && fabric.styledImages.length > 0 && (
+                <Link
+                  href={`/catalog/men/${fabric.slug}/styled`}
+                  className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
+                >
+                  See it styled →
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </section>

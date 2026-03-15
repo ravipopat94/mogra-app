@@ -7,9 +7,9 @@ export default function MensCatalogPage() {
     <div className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-8 py-10 sm:py-16">
       {/* Header */}
       <div className="mb-14">
-        <p className="mb-2 text-xs uppercase tracking-widest text-muted">For Him</p>
+        <p className="mb-2 text-xs uppercase tracking-widest text-muted">For You</p>
         <h1 className="font-serif text-4xl font-light tracking-wide text-foreground">
-          Men&apos;s Shirts
+          Bespoke Shirts
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-muted">
           Each shirt is made to order. Choose your fabric, then customise your

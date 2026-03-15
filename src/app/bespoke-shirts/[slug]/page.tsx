@@ -122,18 +122,28 @@ export default async function ShirtProductPage({
         </div>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:gap-16 lg:grid-cols-2">
+
+          {/* Mobile-only title — above image */}
+          <div className="lg:hidden">
+            <p className="mb-1 text-xs uppercase tracking-widest text-muted">
+              {fabric.composition}
+            </p>
+            <h1 className="font-serif text-3xl font-light tracking-wide text-foreground">
+              {fabric.name}
+            </h1>
+          </div>
 
           {/* Left — image gallery */}
           <ImageGallery images={fabric.images} alt={fabric.name} />
 
           {/* Right — info + configurator */}
           <div>
-            {/* Fabric name + composition */}
-            <p className="mb-2 text-xs uppercase tracking-widest text-muted">
+            {/* Fabric name + composition — desktop only */}
+            <p className="hidden lg:block mb-2 text-xs uppercase tracking-widest text-muted">
               {fabric.composition}
             </p>
-            <h1 className="mb-1 font-serif text-4xl font-light tracking-wide text-foreground">
+            <h1 className="hidden lg:block mb-1 font-serif text-4xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
             <FabricDescription text={fabric.description} />

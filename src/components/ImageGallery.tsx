@@ -17,7 +17,7 @@ export default function ImageGallery({ images, alt }: Props) {
   return (
     <div className="flex flex-col gap-4">
       {/* Main image */}
-      <div className="relative aspect-[4/5] overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
+      <div className="relative aspect-square lg:aspect-[4/5] overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
         <Image
           src={images[current]}
           alt={`${alt} – view ${current + 1}`}

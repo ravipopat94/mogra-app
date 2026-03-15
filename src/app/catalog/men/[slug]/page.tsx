@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fabrics, getFabricBySlug } from "@/data/products";
 import ImageGallery from "@/components/ImageGallery";
 import ShirtConfigurator from "@/components/ShirtConfigurator";
+import FabricDescription from "@/components/FabricDescription";
 
 export async function generateStaticParams() {
   return fabrics.map((f) => ({ slug: f.slug }));
@@ -136,9 +137,7 @@ export default async function ShirtProductPage({
             <h1 className="mb-1 font-serif text-4xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
-            <p className="mb-4 text-sm leading-relaxed text-muted">
-              {fabric.description}
-            </p>
+            <FabricDescription text={fabric.description} />
 
             {fabric.styledImages && fabric.styledImages.length > 0 && (
               <Link

@@ -23,7 +23,7 @@ export default function CatalogPage() {
             <h2 className="font-serif text-3xl font-light tracking-wide text-foreground">Men</h2>
           </div>
           <Link
-            href="/catalog/men"
+            href="/bespoke-shirts"
             className="text-xs font-semibold uppercase tracking-widest text-gold hover:underline underline-offset-4 transition-all"
           >
             View All →
@@ -35,7 +35,7 @@ export default function CatalogPage() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {featuredFabrics.map((fabric) => (
             <div key={fabric.id} className="group">
-              <Link href={`/catalog/men/${fabric.slug}`} className="block">
+              <Link href={`/bespoke-shirts/${fabric.slug}`} className="block">
                 <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
                   <Image
                     src={fabric.images[0]}
@@ -53,7 +53,7 @@ export default function CatalogPage() {
 
               {fabric.styledImages && fabric.styledImages.length > 0 && (
                 <Link
-                  href={`/catalog/men/${fabric.slug}/styled`}
+                  href={`/bespoke-shirts/${fabric.slug}/styled`}
                   className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
                 >
                   See it styled →

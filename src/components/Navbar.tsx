@@ -28,7 +28,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/catalog/men"
+            href="/bespoke-shirts"
             className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
           >
             Bespoke Shirts
@@ -97,7 +97,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/catalog/men"
+              href="/bespoke-shirts"
               className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
               onClick={() => setMenuOpen(false)}
             >

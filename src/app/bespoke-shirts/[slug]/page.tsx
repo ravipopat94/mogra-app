@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 
 function FabricIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="3" width="18" height="18" rx="1" />
       <path d="M3 9h18M3 15h18M9 3v18M15 3v18" strokeDasharray="2 3" />
     </svg>
@@ -23,7 +23,7 @@ function FabricIcon() {
 
 function CollarIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M8 3l4 5 4-5" />
       <path d="M8 3C6 4.5 5 6.5 5 9v12h14V9c0-2.5-1-4.5-3-6" />
       <path d="M12 8v13" />
@@ -33,7 +33,7 @@ function CollarIcon() {
 
 function SleeveIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="2" y="8" width="20" height="8" rx="1" />
       <path d="M6 8v3M10 8v2M14 8v2M18 8v3" />
     </svg>
@@ -42,7 +42,7 @@ function SleeveIcon() {
 
 function SizeIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="12" cy="7" r="3" />
       <path d="M6.5 21v-5a2 2 0 012-2h7a2 2 0 012 2v5" />
       <path d="M3 21h18" />
@@ -73,28 +73,28 @@ export default async function ShirtProductPage({
 
       {/* ── How it works — step guide ── */}
       <div className="border-b border-brand-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-10 sm:py-12">
-          <p className="mb-10 text-center text-xs uppercase tracking-widest text-muted">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-5 sm:py-12">
+          <p className="mb-4 sm:mb-10 text-center text-xs uppercase tracking-widest text-muted">
             How it works
           </p>
 
-          {/* 2×2 grid on mobile, horizontal row on sm+ */}
-          <div className="grid grid-cols-2 gap-8 sm:flex sm:items-start sm:justify-center sm:gap-0">
+          {/* Single row on all sizes */}
+          <div className="flex items-start justify-center">
             {steps.map((step, i) => (
               <div key={step.label} className="flex items-start">
                 {/* Step */}
-                <div className="flex flex-col items-center gap-3 w-full sm:w-32 md:w-36">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold text-gold">
+                <div className="flex flex-col items-center gap-1.5 sm:gap-3 w-16 sm:w-32 md:w-36">
+                  <div className="flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-gold text-gold">
                     <step.Icon />
                   </div>
-                  <p className="text-xs text-center leading-relaxed text-foreground">
+                  <p className="text-[9px] sm:text-xs text-center leading-snug sm:leading-relaxed text-foreground">
                     {step.label}
                   </p>
                 </div>
 
-                {/* Arrow — desktop only */}
+                {/* Arrow */}
                 {i < steps.length - 1 && (
-                  <div className="hidden sm:flex items-center mt-5 mx-1 text-gold text-lg select-none">
+                  <div className="flex items-center mt-3 sm:mt-5 mx-0.5 sm:mx-1 text-gold text-[10px] sm:text-lg select-none">
                     →
                   </div>
                 )}

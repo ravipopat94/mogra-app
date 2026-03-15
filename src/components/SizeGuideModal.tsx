@@ -64,10 +64,10 @@ export default function SizeGuideModal({ onClose }: Props) {
                 {cols.map((col) => (
                   <th
                     key={col.key}
-                    className={`pb-3 pr-6 text-left text-[10px] uppercase tracking-widest text-muted font-normal whitespace-nowrap ${
+                    className={`pb-3 text-left text-[10px] uppercase tracking-widest text-muted font-normal whitespace-nowrap ${
                       col.key === "size"
-                        ? "sticky left-0 z-10 bg-background"
-                        : ""
+                        ? "sticky left-0 z-10 bg-background pr-4 border-r border-brand-border"
+                        : "pr-6 pl-4"
                     }`}
                   >
                     {col.label}
@@ -81,10 +81,10 @@ export default function SizeGuideModal({ onClose }: Props) {
                   {cols.map((col) => (
                     <td
                       key={col.key}
-                      className={`py-3 pr-6 whitespace-nowrap ${
+                      className={`py-3 whitespace-nowrap ${
                         col.key === "size"
-                          ? "sticky left-0 z-10 bg-background font-medium text-foreground"
-                          : "text-muted"
+                          ? "sticky left-0 z-10 bg-background pr-4 border-r border-brand-border font-medium text-foreground"
+                          : "pr-6 pl-4 text-muted"
                       }`}
                     >
                       {row[col.key as keyof typeof row]}

@@ -7,18 +7,14 @@ export default function FabricDescription({ text }: { text: string }) {
 
   return (
     <div className="mb-4">
-      <p
-        className={`text-sm leading-relaxed text-muted transition-all ${
-          expanded ? "" : "line-clamp-3"
-        }`}
-      >
-        {text}
-      </p>
+      {expanded && (
+        <p className="mb-2 text-sm leading-relaxed text-muted">{text}</p>
+      )}
       <button
         onClick={() => setExpanded((v) => !v)}
-        className="mt-1.5 text-xs uppercase tracking-widest text-muted hover:text-gold transition-colors"
+        className="text-xs uppercase tracking-widest text-muted hover:text-gold transition-colors"
       >
-        {expanded ? "Show less ↑" : "Read more ↓"}
+        {expanded ? "Show less ↑" : "About this fabric ↓"}
       </button>
     </div>
   );

@@ -42,7 +42,6 @@ export default function MensCatalogPage() {
                   {fabric.name}
                 </p>
                 <p className="mt-0.5 text-xs text-muted truncate">{fabric.composition}</p>
-                <p className="mt-1 text-xs text-gold">from ${STANDARD_PRICE}</p>
               </div>
             </Link>
 

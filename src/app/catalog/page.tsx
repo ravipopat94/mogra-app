@@ -48,7 +48,6 @@ export default function CatalogPage() {
                 <div className="mt-3 overflow-hidden">
                   <p className="text-xs uppercase tracking-widest text-muted truncate">{fabric.composition}</p>
                   <h3 className="mt-1 text-xs font-medium text-foreground truncate">{fabric.name}</h3>
-                  <p className="mt-1 text-xs text-gold">from ${STANDARD_PRICE}</p>
                 </div>
               </Link>
 

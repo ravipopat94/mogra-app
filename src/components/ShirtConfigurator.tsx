@@ -76,14 +76,6 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
 
   return (
     <div>
-      {/* Dynamic price */}
-      <p className="mb-6 text-xl text-gold font-light">
-        ${price}.00
-        {size === "Custom" && (
-          <span className="ml-2 text-xs text-muted">(custom sizing)</span>
-        )}
-      </p>
-
       {/* ── Collar ── */}
       <div className="mb-5">
         <div className="flex items-center gap-2 mb-2.5">
@@ -194,7 +186,6 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
           >
             +
           </button>
-          <span className="text-xs text-muted">= ${price * quantity}.00</span>
         </div>
       </div>
 

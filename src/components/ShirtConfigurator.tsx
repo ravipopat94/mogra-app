@@ -11,6 +11,7 @@ import {
   CUSTOM_PRICE,
 } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import SizeGuideModal from "@/components/SizeGuideModal";
 
 const COLLAR_INFO: Record<string, { description: string; image: string }> = {
   "Standard Collar": {
@@ -39,6 +40,7 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [showCollarGuide, setShowCollarGuide] = useState(false);
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
   const collarGuideRef = useRef<HTMLDivElement>(null);
 
   // Close tooltip when tapping outside (mobile)
@@ -148,7 +150,16 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
 
       {/* ── Size ── */}
       <div className="mb-6">
-        <p className="mb-2.5 text-xs uppercase tracking-widest text-muted">Size</p>
+        <div className="flex items-center justify-between mb-2.5">
+          <p className="text-xs uppercase tracking-widest text-muted">Size</p>
+          <button
+            type="button"
+            onClick={() => setShowSizeGuide(true)}
+            className="text-[10px] uppercase tracking-widest text-muted hover:text-gold transition-colors"
+          >
+            Size guide
+          </button>
+        </div>
         <div className="flex flex-wrap gap-2">
           {SHIRT_SIZES.map((s) => (
             <button
@@ -216,6 +227,8 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
           View Cart →
         </button>
       )}
+
+      {showSizeGuide && <SizeGuideModal onClose={() => setShowSizeGuide(false)} />}
     </div>
   );
 }

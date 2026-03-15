@@ -7,7 +7,6 @@ import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [catalogOpen, setCatalogOpen] = useState(false);
   const { totalItems } = useCart();
 
   return (
@@ -28,54 +27,12 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Product Catalog with dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setCatalogOpen(true)}
-            onMouseLeave={() => setCatalogOpen(false)}
+          <Link
+            href="/catalog/men"
+            className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
           >
-            <Link
-              href="/catalog"
-              className="flex items-center gap-1.5 text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
-            >
-              Product Catalog
-              <svg
-                className={`w-2.5 h-2.5 transition-transform duration-200 ${
-                  catalogOpen ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </Link>
-
-            {/* Dropdown */}
-            {catalogOpen && (
-              <div className="absolute top-full left-0 pt-3 w-36">
-                <div className="bg-background border border-brand-border shadow-sm">
-                  <Link
-                    href="/catalog/men"
-                    className="block px-5 py-3 text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
-                  >
-                    Men
-                  </Link>
-                  <Link
-                    href="/catalog/women"
-                    className="block px-5 py-3 text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors border-t border-brand-border"
-                  >
-                    Women
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
+            Bespoke Shirts
+          </Link>
 
           <Link
             href="/testimonials"
@@ -139,25 +96,13 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <div className="flex flex-col gap-3">
-              <span className="text-xs tracking-widest uppercase text-foreground">
-                Product Catalog
-              </span>
-              <Link
-                href="/catalog/men"
-                className="pl-4 text-xs tracking-widest uppercase text-muted hover:text-gold transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Men
-              </Link>
-              <Link
-                href="/catalog/women"
-                className="pl-4 text-xs tracking-widest uppercase text-muted hover:text-gold transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Women
-              </Link>
-            </div>
+            <Link
+              href="/catalog/men"
+              className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              Bespoke Shirts
+            </Link>
             <Link
               href="/testimonials"
               className="text-xs tracking-widest uppercase text-foreground hover:text-gold transition-colors"

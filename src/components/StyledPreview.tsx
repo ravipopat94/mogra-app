@@ -1,0 +1,113 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+
+interface Props {
+  images: string[];
+  fabricName: string;
+}
+
+export default function StyledPreview({ images, fabricName }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedIndex(null);
+      if (e.key === "ArrowRight")
+        setSelectedIndex((i) => (i !== null ? Math.min(i + 1, images.length - 1) : null));
+      if (e.key === "ArrowLeft")
+        setSelectedIndex((i) => (i !== null ? Math.max(i - 1, 0) : null));
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex, images.length]);
+
+  return (
+    <>
+      <div className="mb-6">
+        <p className="mb-2 text-xs uppercase tracking-widest text-muted">As worn</p>
+        <div className="flex gap-2">
+          {images.map((src, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedIndex(i)}
+              className="relative w-20 h-20 overflow-hidden border border-brand-border hover:border-foreground transition-colors"
+              aria-label={`View styled look ${i + 1}`}
+            >
+              <Image
+                src={src}
+                alt={`${fabricName} styled look ${i + 1}`}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={() => setSelectedIndex(null)}
+        >
+          {/* Close */}
+          <button
+            className="absolute top-4 right-5 text-white/70 hover:text-white text-2xl leading-none"
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+
+          {/* Prev */}
+          {selectedIndex > 0 && (
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-3xl leading-none px-2"
+              onClick={(e) => { e.stopPropagation(); setSelectedIndex((i) => (i !== null ? i - 1 : null)); }}
+              aria-label="Previous"
+            >
+              ‹
+            </button>
+          )}
+
+          {/* Image */}
+          <div
+            className="relative max-h-[90vh] max-w-[90vw] w-full h-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={images[selectedIndex]}
+              alt={`${fabricName} styled look ${selectedIndex + 1}`}
+              width={900}
+              height={1100}
+              className="max-h-[88vh] max-w-[88vw] w-auto h-auto object-contain"
+            />
+          </div>
+
+          {/* Next */}
+          {selectedIndex < images.length - 1 && (
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-3xl leading-none px-2"
+              onClick={(e) => { e.stopPropagation(); setSelectedIndex((i) => (i !== null ? i + 1 : null)); }}
+              aria-label="Next"
+            >
+              ›
+            </button>
+          )}
+
+          {/* Counter */}
+          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-white/50">
+            {selectedIndex + 1} / {images.length}
+          </p>
+        </div>
+      )}
+    </>
+  );
+}

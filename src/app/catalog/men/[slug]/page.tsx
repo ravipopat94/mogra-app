@@ -4,6 +4,7 @@ import { fabrics, getFabricBySlug } from "@/data/products";
 import ImageGallery from "@/components/ImageGallery";
 import ShirtConfigurator from "@/components/ShirtConfigurator";
 import FabricDescription from "@/components/FabricDescription";
+import StyledPreview from "@/components/StyledPreview";
 
 export async function generateStaticParams() {
   return fabrics.map((f) => ({ slug: f.slug }));
@@ -140,12 +141,7 @@ export default async function ShirtProductPage({
             <FabricDescription text={fabric.description} />
 
             {fabric.styledImages && fabric.styledImages.length > 0 && (
-              <Link
-                href={`/catalog/men/${fabric.slug}/styled`}
-                className="inline-block mb-6 text-xs uppercase tracking-widest text-muted underline underline-offset-4 hover:text-gold transition-colors"
-              >
-                See it styled →
-              </Link>
+              <StyledPreview images={fabric.styledImages} fabricName={fabric.name} />
             )}
 
             <div className="border-t border-brand-border my-6" />

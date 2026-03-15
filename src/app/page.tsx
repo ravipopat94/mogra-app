@@ -11,7 +11,7 @@ export default function HomePage() {
             alt="Mogra"
             width={1316}
             height={960}
-            className="w-64 sm:w-96 md:w-[30rem]"
+            className="w-[85vw] sm:w-96 md:w-[30rem]"
             priority
           />
         </div>

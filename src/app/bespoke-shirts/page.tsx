@@ -48,7 +48,7 @@ export default function BespokeShirtsPage() {
 
             <Link
               href={`/bespoke-shirts/${fabric.slug}`}
-              className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
+              className="mt-1.5 block text-[10px] font-semibold uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
             >
               Shop now →
             </Link>
@@ -57,7 +57,7 @@ export default function BespokeShirtsPage() {
               <StyledTrigger
                 images={fabric.styledImages}
                 fabricName={fabric.name}
-                className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
+                className="mt-1 block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
               />
             )}
           </div>

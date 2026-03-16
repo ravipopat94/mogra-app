@@ -46,6 +46,13 @@ export default function BespokeShirtsPage() {
               </div>
             </Link>
 
+            <Link
+              href={`/bespoke-shirts/${fabric.slug}`}
+              className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
+            >
+              Shop now →
+            </Link>
+
             {fabric.styledImages && fabric.styledImages.length > 0 && (
               <StyledTrigger
                 images={fabric.styledImages}

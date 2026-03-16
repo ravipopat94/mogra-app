@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import MobileCartBar from "@/components/MobileCartBar";
 import { CartProvider } from "@/context/CartContext";
 
 const geistSans = Geist({
@@ -45,7 +46,8 @@ export default function RootLayout({
       >
         <CartProvider>
           <Navbar />
-          <main className="flex-1 flex flex-col overflow-y-auto">{children}</main>
+          <main className="flex-1 flex flex-col overflow-y-auto pb-14 md:pb-0">{children}</main>
+          <MobileCartBar />
         </CartProvider>
       </body>
     </html>

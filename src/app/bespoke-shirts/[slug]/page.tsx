@@ -4,7 +4,7 @@ import { fabrics, getFabricBySlug } from "@/data/products";
 import ImageGallery from "@/components/ImageGallery";
 import ShirtConfigurator from "@/components/ShirtConfigurator";
 import FabricDescription from "@/components/FabricDescription";
-import StyledPreview from "@/components/StyledPreview";
+import StyledTrigger from "@/components/StyledTrigger";
 
 export async function generateStaticParams() {
   return fabrics.map((f) => ({ slug: f.slug }));
@@ -149,7 +149,7 @@ export default async function ShirtProductPage({
             <FabricDescription text={fabric.description} />
 
             {fabric.styledImages && fabric.styledImages.length > 0 && (
-              <StyledPreview images={fabric.styledImages} fabricName={fabric.name} />
+              <StyledTrigger images={fabric.styledImages} fabricName={fabric.name} />
             )}
 
             <div className="border-t border-brand-border my-6" />

@@ -46,7 +46,7 @@ export default function CartPage() {
           <p className="mb-4 font-serif text-2xl font-light text-foreground">Your cart is empty</p>
           <p className="mb-8 text-xs uppercase tracking-widest text-muted">Add a fabric to get started</p>
           <Link
-            href="/catalog/men"
+            href="/bespoke-shirts"
             className="text-xs uppercase tracking-widest text-gold hover:underline underline-offset-4 transition-all"
           >
             Browse Fabrics →

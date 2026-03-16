@@ -31,11 +31,8 @@ export default function Footer() {
               <Link href="/" className="text-sm text-foreground hover:text-gold transition-colors">
                 Home
               </Link>
-              <Link href="/catalog/women" className="text-sm text-foreground hover:text-gold transition-colors">
-                Women
-              </Link>
-              <Link href="/catalog/men" className="text-sm text-foreground hover:text-gold transition-colors">
-                Men
+              <Link href="/bespoke-shirts" className="text-sm text-foreground hover:text-gold transition-colors">
+                Bespoke Shirts
               </Link>
               <Link href="/testimonials" className="text-sm text-foreground hover:text-gold transition-colors">
                 Mogra Community

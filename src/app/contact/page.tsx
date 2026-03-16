@@ -1,19 +1,19 @@
 "use client";
 
 import { useState } from "react";
-
-const WHATSAPP_NUMBER = "919718568455";
-const CONTACT_EMAIL = "team@shopmogra.com";
+import { WHATSAPP_NUMBER, CONTACT_EMAIL } from "@/lib/constants";
 
 function buildMessage(form: { name: string; email: string; subject: string; message: string }) {
   return (
     `Hi Mogra! I'd like to get in touch.\n\n` +
-    `Name: ${form.name}\n` +
-    `Email: ${form.email}\n` +
+    `Name: ${form.name.trim()}\n` +
+    `Email: ${form.email.trim()}\n` +
     `Subject: ${form.subject}\n\n` +
-    `Message:\n${form.message}`
+    `Message:\n${form.message.trim()}`
   );
 }
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -32,7 +32,11 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  const canSend = form.name && form.email && form.subject && form.message;
+  const canSend =
+    form.name.trim() &&
+    EMAIL_RE.test(form.email.trim()) &&
+    form.subject &&
+    form.message.trim();
   const message = buildMessage(form);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -61,6 +65,7 @@ export default function ContactPage() {
               value={form.name}
               onChange={handleChange}
               placeholder="Your name"
+              maxLength={60}
               className="w-full border border-brand-border bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted focus:border-gold transition-colors"
             />
           </div>
@@ -72,6 +77,7 @@ export default function ContactPage() {
               value={form.email}
               onChange={handleChange}
               placeholder="your@email.com"
+              maxLength={120}
               className="w-full border border-brand-border bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted focus:border-gold transition-colors"
             />
           </div>
@@ -101,6 +107,7 @@ export default function ContactPage() {
             onChange={handleChange}
             rows={6}
             placeholder="Tell us how we can help..."
+            maxLength={2000}
             className="w-full resize-none border border-brand-border bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted focus:border-gold transition-colors"
           />
         </div>

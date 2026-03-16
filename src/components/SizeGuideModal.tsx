@@ -58,7 +58,7 @@ export default function SizeGuideModal({ onClose }: Props) {
 
         {/* Table */}
         <div className="overflow-x-auto px-6 py-5">
-          <table className="w-full text-xs border-collapse">
+          <table className="w-full text-xs border-separate border-spacing-0">
             <thead>
               <tr>
                 {cols.map((col) => (
@@ -77,11 +77,13 @@ export default function SizeGuideModal({ onClose }: Props) {
             </thead>
             <tbody>
               {sizes.map((row, i) => (
-                <tr key={row.size} className={i < sizes.length - 1 ? "border-b border-brand-border" : ""}>
+                <tr key={row.size}>
                   {cols.map((col) => (
                     <td
                       key={col.key}
                       className={`py-3 whitespace-nowrap ${
+                        i < sizes.length - 1 ? "border-b border-brand-border" : ""
+                      } ${
                         col.key === "size"
                           ? "sticky left-0 z-10 bg-background pr-4 border-r border-brand-border font-medium text-foreground"
                           : "pr-6 pl-4 text-muted"

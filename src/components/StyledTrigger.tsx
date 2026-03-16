@@ -6,16 +6,17 @@ import StyledModal from "./StyledModal";
 interface Props {
   images: string[];
   fabricName: string;
+  className?: string;
 }
 
-export default function StyledTrigger({ images, fabricName }: Props) {
+export default function StyledTrigger({ images, fabricName, className }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <button
         onClick={() => setOpen(true)}
-        className="mb-4 text-xs uppercase tracking-widest text-muted hover:text-gold transition-colors"
+        className={className ?? "mb-4 text-xs uppercase tracking-widest text-muted hover:text-gold transition-colors"}
       >
         See it styled →
       </button>

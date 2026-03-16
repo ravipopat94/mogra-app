@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fabrics } from "@/data/products";
+import StyledTrigger from "@/components/StyledTrigger";
 
 export default function BespokeShirtsPage() {
   return (
@@ -46,12 +47,11 @@ export default function BespokeShirtsPage() {
             </Link>
 
             {fabric.styledImages && fabric.styledImages.length > 0 && (
-              <Link
-                href={`/bespoke-shirts/${fabric.slug}/styled`}
+              <StyledTrigger
+                images={fabric.styledImages}
+                fabricName={fabric.name}
                 className="mt-1.5 inline-block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
-              >
-                See it styled →
-              </Link>
+              />
             )}
           </div>
         ))}

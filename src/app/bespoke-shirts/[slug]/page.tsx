@@ -73,8 +73,8 @@ export default async function ShirtProductPage({
 
       {/* ── How it works — step guide ── */}
       <div className="border-b border-brand-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-5 sm:py-12">
-          <p className="mb-4 sm:mb-10 text-center text-xs uppercase tracking-widest text-muted">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-5 sm:py-6">
+          <p className="mb-4 sm:mb-5 text-center text-xs uppercase tracking-widest text-muted">
             How it works
           </p>
 
@@ -83,18 +83,18 @@ export default async function ShirtProductPage({
             {steps.map((step, i) => (
               <div key={step.label} className="flex items-start">
                 {/* Step */}
-                <div className="flex flex-col items-center gap-1.5 sm:gap-3 w-16 sm:w-32 md:w-36">
-                  <div className="flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-gold text-gold">
+                <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-16 sm:w-24 md:w-28">
+                  <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-gold text-gold">
                     <step.Icon />
                   </div>
-                  <p className="text-[9px] sm:text-xs text-center leading-snug sm:leading-relaxed text-foreground">
+                  <p className="text-[9px] sm:text-[10px] text-center leading-snug text-foreground">
                     {step.label}
                   </p>
                 </div>
 
                 {/* Arrow */}
                 {i < steps.length - 1 && (
-                  <div className="flex items-center mt-3 sm:mt-5 mx-0.5 sm:mx-1 text-gold text-[10px] sm:text-lg select-none">
+                  <div className="flex items-center mt-3 sm:mt-3.5 mx-0.5 sm:mx-1 text-gold text-[10px] sm:text-base select-none">
                     →
                   </div>
                 )}

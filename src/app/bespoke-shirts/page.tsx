@@ -42,7 +42,6 @@ export default function BespokeShirtsPage() {
                 <p className="text-xs font-medium text-foreground truncate">
                   {fabric.name}
                 </p>
-                <p className="mt-0.5 text-xs text-muted truncate">{fabric.composition}</p>
               </div>
             </Link>
 

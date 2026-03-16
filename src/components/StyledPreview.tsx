@@ -10,6 +10,8 @@ interface Props {
 
 export default function StyledPreview({ images, fabricName }: Props) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const wasSwiped = useRef(false);
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -55,7 +57,18 @@ export default function StyledPreview({ images, fabricName }: Props) {
       {selectedIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-          onClick={() => setSelectedIndex(null)}
+          onClick={() => { if (wasSwiped.current) { wasSwiped.current = false; return; } setSelectedIndex(null); }}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; wasSwiped.current = false; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const delta = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(delta) > 50) {
+              wasSwiped.current = true;
+              if (delta < 0) setSelectedIndex((i) => (i !== null ? Math.min(i + 1, images.length - 1) : null));
+              else setSelectedIndex((i) => (i !== null ? Math.max(i - 1, 0) : null));
+            }
+            touchStartX.current = null;
+          }}
         >
           {/* Image — rendered first so buttons layer on top */}
           <div

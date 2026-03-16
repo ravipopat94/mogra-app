@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="flex-1 flex items-center justify-center">
+    <div className="flex-1 w-full flex items-center justify-center">
       <Link href="/bespoke-shirts" className="flex flex-col items-center gap-3 sm:gap-5">
         <div className="animate-mogra-spin">
           <Image

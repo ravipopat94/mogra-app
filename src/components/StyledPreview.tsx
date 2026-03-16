@@ -57,27 +57,7 @@ export default function StyledPreview({ images, fabricName }: Props) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
           onClick={() => setSelectedIndex(null)}
         >
-          {/* Close */}
-          <button
-            className="absolute top-4 right-5 text-white/70 hover:text-white text-2xl leading-none"
-            onClick={() => setSelectedIndex(null)}
-            aria-label="Close"
-          >
-            ✕
-          </button>
-
-          {/* Prev */}
-          {selectedIndex > 0 && (
-            <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-3xl leading-none px-2"
-              onClick={(e) => { e.stopPropagation(); setSelectedIndex((i) => (i !== null ? i - 1 : null)); }}
-              aria-label="Previous"
-            >
-              ‹
-            </button>
-          )}
-
-          {/* Image */}
+          {/* Image — rendered first so buttons layer on top */}
           <div
             className="relative max-h-[90vh] max-w-[90vw] w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
@@ -91,10 +71,30 @@ export default function StyledPreview({ images, fabricName }: Props) {
             />
           </div>
 
-          {/* Next */}
+          {/* Close — large tap target */}
+          <button
+            className="absolute top-2 right-2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-xl"
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+
+          {/* Prev — large tap target */}
+          {selectedIndex > 0 && (
+            <button
+              className="absolute left-1 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-4xl"
+              onClick={(e) => { e.stopPropagation(); setSelectedIndex((i) => (i !== null ? i - 1 : null)); }}
+              aria-label="Previous"
+            >
+              ‹
+            </button>
+          )}
+
+          {/* Next — large tap target */}
           {selectedIndex < images.length - 1 && (
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-3xl leading-none px-2"
+              className="absolute right-1 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-4xl"
               onClick={(e) => { e.stopPropagation(); setSelectedIndex((i) => (i !== null ? i + 1 : null)); }}
               aria-label="Next"
             >
@@ -103,7 +103,7 @@ export default function StyledPreview({ images, fabricName }: Props) {
           )}
 
           {/* Counter */}
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-white/50">
+          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-xs uppercase tracking-widest text-white/50">
             {selectedIndex + 1} / {images.length}
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 
 export default function ImageGallery({ images, alt }: Props) {
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
   const prev = () => setCurrent((c) => (c - 1 + images.length) % images.length);
   const next = () => setCurrent((c) => (c + 1) % images.length);
@@ -17,7 +18,18 @@ export default function ImageGallery({ images, alt }: Props) {
   return (
     <div className="flex flex-col gap-4">
       {/* Main image */}
-      <div className="relative aspect-square lg:aspect-[4/5] overflow-hidden" style={{ backgroundColor: "#e5dfd4" }}>
+      <div
+        className="relative aspect-square lg:aspect-[4/5] overflow-hidden"
+        style={{ backgroundColor: "#e5dfd4" }}
+        onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+        onTouchEnd={(e) => {
+          if (touchStartX.current === null) return;
+          const delta = e.changedTouches[0].clientX - touchStartX.current;
+          if (delta > 50) prev();
+          else if (delta < -50) next();
+          touchStartX.current = null;
+        }}
+      >
         <Image
           src={images[current]}
           alt={`${alt} – view ${current + 1}`}

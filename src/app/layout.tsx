@@ -46,7 +46,7 @@ export default function RootLayout({
       >
         <CartProvider>
           <Navbar />
-          <main className="flex-1 flex flex-col overflow-y-auto pb-14 md:pb-0">{children}</main>
+          <main className="flex-1 flex flex-col overflow-y-auto pb-20 md:pb-0">{children}</main>
           <MobileCartBar />
         </CartProvider>
       </body>

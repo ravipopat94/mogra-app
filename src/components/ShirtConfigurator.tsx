@@ -200,8 +200,17 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
         </div>
       </div>
 
-      {/* ── Add to Cart ── */}
-      {!canAdd && (
+      {/* ── Price summary (once all options chosen) ── */}
+      {canAdd ? (
+        <div className="mb-5 flex items-center justify-between border-t border-brand-border pt-5">
+          <p className="text-xs uppercase tracking-widest text-muted">
+            {quantity > 1 ? `${quantity} × $${price}` : "Price"}
+          </p>
+          <p className="font-serif text-2xl font-light text-foreground">
+            ${price * quantity}.00
+          </p>
+        </div>
+      ) : (
         <p className="mb-3 text-xs text-muted">
           Please select a collar, sleeve length, and size to continue.
         </p>

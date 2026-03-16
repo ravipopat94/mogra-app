@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { WHATSAPP_NUMBER, CONTACT_EMAIL } from "@/lib/constants";
 
-function buildOrderMessage(items: ReturnType<typeof useCart>["items"]) {
+function buildOrderMessage(items: ReturnType<typeof useCart>["items"], total: number) {
   const lines = items.map((item, i) =>
     `${i + 1}. ${item.fabricName}\n` +
     `   Collar: ${item.collar} | Sleeve: ${item.sleeve} | Size: ${item.size}\n` +
-    `   Qty: ${item.quantity}`
+    `   Qty: ${item.quantity} × $${item.price} = $${item.price * item.quantity}`
   );
 
   return (
@@ -18,15 +18,16 @@ function buildOrderMessage(items: ReturnType<typeof useCart>["items"]) {
     `─────────────────────\n` +
     lines.join("\n\n") +
     `\n\n─────────────────────\n` +
+    `Total: $${total}\n\n` +
     `Please let me know the next steps. Thank you!`
   );
 }
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, totalItems } = useCart();
+  const { items, removeItem, updateQuantity, totalItems, totalPrice } = useCart();
   const [copied, setCopied] = useState(false);
 
-  const message = buildOrderMessage(items);
+  const message = buildOrderMessage(items, totalPrice);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   const emailUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Mogra Shirt Order")}&body=${encodeURIComponent(message)}`;
@@ -102,6 +103,11 @@ export default function CartPage() {
                 </button>
               </div>
 
+              {/* Line total */}
+              <p className="w-16 text-right text-sm text-foreground">
+                ${item.price * item.quantity}
+              </p>
+
               {/* Remove */}
               <button
                 onClick={() => removeItem(item.id)}
@@ -113,6 +119,12 @@ export default function CartPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Order total */}
+      <div className="mb-10 flex items-center justify-between">
+        <p className="text-xs uppercase tracking-widest text-muted">Total</p>
+        <p className="font-serif text-2xl font-light text-foreground">${totalPrice}.00</p>
       </div>
 
       {/* Order note */}

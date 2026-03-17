@@ -46,7 +46,7 @@ export default function StyledModal({ images, fabricName, onClose }: Props) {
     >
       {/* Image — rendered first so buttons layer on top */}
       <div
-        className="relative max-h-[90vh] max-w-[90vw] w-full h-full flex items-center justify-center"
+        className="relative max-h-[90vh] max-w-[90vw] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         <Image

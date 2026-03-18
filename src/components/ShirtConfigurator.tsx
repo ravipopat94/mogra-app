@@ -102,6 +102,35 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
         </p>
       )}
 
+      {/* ── See it styled ── */}
+      {configImages && (
+        <div className="mb-5">
+          <button
+            type="button"
+            onClick={() => {
+              if (configImage) {
+                setShowConfigHint(false);
+                setShowConfigPreview(true);
+              } else {
+                setShowConfigHint(true);
+              }
+            }}
+            className={`text-[10px] uppercase tracking-widest transition-colors ${
+              configImage
+                ? "text-muted hover:text-gold"
+                : "text-muted/40"
+            }`}
+          >
+            {configImage ? "See it styled →" : "Want to see it styled? Select your collar style & sleeve length"}
+          </button>
+          {showConfigHint && !configImage && (
+            <p className="mt-1 text-[10px] text-muted">
+              Select your collar style &amp; sleeve length to preview.
+            </p>
+          )}
+        </div>
+      )}
+
       {/* ── Collar ── */}
       <div className="mb-5">
         <div className="flex items-center gap-2 mb-2.5">
@@ -171,35 +200,6 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
           ))}
         </div>
       </div>
-
-      {/* ── See it styled ── */}
-      {configImages && (
-        <div className="mb-5">
-          <button
-            type="button"
-            onClick={() => {
-              if (configImage) {
-                setShowConfigHint(false);
-                setShowConfigPreview(true);
-              } else {
-                setShowConfigHint(true);
-              }
-            }}
-            className={`text-[10px] uppercase tracking-widest transition-colors ${
-              configImage
-                ? "text-muted hover:text-gold"
-                : "text-muted/40"
-            }`}
-          >
-            See it styled →
-          </button>
-          {showConfigHint && !configImage && (
-            <p className="mt-1 text-[10px] text-muted">
-              Select a collar and sleeve to preview your shirt.
-            </p>
-          )}
-        </div>
-      )}
 
       {/* ── Size ── */}
       <div className="mb-6">

@@ -34,6 +34,7 @@ export default function ImageGallery({ images, alt }: Props) {
   }, [lightboxOpen, current]);
 
   return (
+    <>
     <div className="flex flex-col gap-4">
       {/* Main image */}
       <div
@@ -111,6 +112,7 @@ export default function ImageGallery({ images, alt }: Props) {
     </div>
 
       {/* Lightbox */}
+
       {lightboxOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
@@ -167,6 +169,6 @@ export default function ImageGallery({ images, alt }: Props) {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }

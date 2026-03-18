@@ -4,7 +4,6 @@ import { fabrics, getFabricBySlug } from "@/data/products";
 import ImageGallery from "@/components/ImageGallery";
 import ShirtConfigurator from "@/components/ShirtConfigurator";
 import FabricDescription from "@/components/FabricDescription";
-import StyledPreview from "@/components/StyledPreview";
 
 export async function generateStaticParams() {
   return fabrics.map((f) => ({ slug: f.slug }));
@@ -148,14 +147,14 @@ export default async function ShirtProductPage({
             </h1>
             <FabricDescription text={fabric.description} />
 
-            {fabric.styledImages && fabric.styledImages.length > 0 && (
-              <StyledPreview images={fabric.styledImages} fabricName={fabric.name} />
-            )}
-
             <div className="border-t border-brand-border my-6" />
 
             {/* Configurator */}
-            <ShirtConfigurator fabricName={fabric.name} fabricSlug={fabric.slug} />
+            <ShirtConfigurator
+              fabricName={fabric.name}
+              fabricSlug={fabric.slug}
+              configImages={fabric.configImages}
+            />
 
             <div className="mt-6 border-t border-brand-border pt-5">
               <p className="text-xs leading-relaxed text-muted">

@@ -31,9 +31,10 @@ const COLLAR_INFO: Record<string, { description: string; image: string }> = {
 interface Props {
   fabricName: string;
   fabricSlug: string;
+  configImages?: Record<string, string>;
 }
 
-export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
+export default function ShirtConfigurator({ fabricName, fabricSlug, configImages }: Props) {
   const [collar, setCollar] = useState<string | null>(null);
   const [sleeve, setSleeve] = useState<string | null>(null);
   const [size, setSize] = useState<string | null>(null);
@@ -41,6 +42,8 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
   const [added, setAdded] = useState(false);
   const [showCollarGuide, setShowCollarGuide] = useState(false);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
+  const [showConfigPreview, setShowConfigPreview] = useState(false);
+  const [showConfigHint, setShowConfigHint] = useState(false);
   const collarGuideRef = useRef<HTMLDivElement>(null);
 
   // Close tooltip when tapping outside (mobile)
@@ -58,6 +61,20 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
       document.removeEventListener("touchstart", handler);
     };
   }, [showCollarGuide]);
+
+  // Config preview lightbox — keyboard + scroll lock
+  useEffect(() => {
+    if (!showConfigPreview) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setShowConfigPreview(false); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [showConfigPreview]);
+
+  const configImage = collar && sleeve ? configImages?.[`${collar}|${sleeve}`] : undefined;
 
   const { addItem } = useCart();
   const router = useRouter();
@@ -155,6 +172,35 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
         </div>
       </div>
 
+      {/* ── See it styled ── */}
+      {configImages && (
+        <div className="mb-5">
+          <button
+            type="button"
+            onClick={() => {
+              if (configImage) {
+                setShowConfigHint(false);
+                setShowConfigPreview(true);
+              } else {
+                setShowConfigHint(true);
+              }
+            }}
+            className={`text-[10px] uppercase tracking-widest transition-colors ${
+              configImage
+                ? "text-muted hover:text-gold"
+                : "text-muted/40"
+            }`}
+          >
+            See it styled →
+          </button>
+          {showConfigHint && !configImage && (
+            <p className="mt-1 text-[10px] text-muted">
+              Select a collar and sleeve to preview your shirt.
+            </p>
+          )}
+        </div>
+      )}
+
       {/* ── Size ── */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2.5">
@@ -241,6 +287,37 @@ export default function ShirtConfigurator({ fabricName, fabricSlug }: Props) {
       )}
 
       {showSizeGuide && <SizeGuideModal onClose={() => setShowSizeGuide(false)} />}
+
+      {/* ── Config preview lightbox ── */}
+      {showConfigPreview && configImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={() => setShowConfigPreview(false)}
+        >
+          <div
+            className="relative max-h-[90vh] max-w-[90vw] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={configImage}
+              alt={`${fabricName} — ${collar} ${sleeve} sleeve`}
+              width={900}
+              height={1100}
+              className="max-h-[88vh] max-w-[88vw] w-auto h-auto object-contain"
+            />
+          </div>
+          <button
+            className="absolute top-2 right-2 z-10 w-12 h-12 flex items-center justify-center text-white/70 hover:text-white text-xl"
+            onClick={() => setShowConfigPreview(false)}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-xs uppercase tracking-widest text-white/50 text-center">
+            {fabricName} — {collar}, {sleeve} sleeve
+          </p>
+        </div>
+      )}
     </div>
   );
 }

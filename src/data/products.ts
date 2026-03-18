@@ -141,7 +141,8 @@ export interface Fabric {
   composition: string;
   images: string[]; // first image used as catalog card thumbnail
   featured: boolean;
-  styledImages?: string[]; // AI-generated lookbook photos — enables "See it styled" link
+  styledImages?: string[]; // AI-generated lookbook photos — enables "See it styled" on catalog
+  configImages?: Record<string, string>; // "Collar|Sleeve" → image path e.g. "Standard Collar|Long"
 }
 
 export const fabrics: Fabric[] = [
@@ -161,6 +162,14 @@ export const fabrics: Fabric[] = [
       "/styled/black-white-ikat/2b.png",
       "/styled/black-white-ikat/3b.png",
     ],
+    configImages: {
+      "Standard Collar|Long":  "/styled/black-white-ikat/standard-long.png",
+      "Standard Collar|Short": "/styled/black-white-ikat/standard-short.png",
+      "Chinese Collar|Long":   "/styled/black-white-ikat/chinese-long.png",
+      "Chinese Collar|Short":  "/styled/black-white-ikat/chinese-short.png",
+      "Cuban Collar|Long":     "/styled/black-white-ikat/cuban-long.png",
+      "Cuban Collar|Short":    "/styled/black-white-ikat/cuban-short.png",
+    },
     featured: true,
   },
   {
@@ -179,6 +188,14 @@ export const fabrics: Fabric[] = [
       "/styled/gray-chikankari/2b.png",
       "/styled/gray-chikankari/3b.png",
     ],
+    configImages: {
+      "Standard Collar|Long":  "/styled/gray-chikankari/standard-long.png",
+      "Standard Collar|Short": "/styled/gray-chikankari/standard-short.png",
+      "Chinese Collar|Long":   "/styled/gray-chikankari/chinese-long.png",
+      "Chinese Collar|Short":  "/styled/gray-chikankari/chinese-short.png",
+      "Cuban Collar|Long":     "/styled/gray-chikankari/cuban-long.png",
+      "Cuban Collar|Short":    "/styled/gray-chikankari/cuban-short.png",
+    },
     featured: true,
   },
   {
@@ -197,6 +214,14 @@ export const fabrics: Fabric[] = [
       "/styled/summer-blue-linen/2b.png",
       "/styled/summer-blue-linen/3b.jpg",
     ],
+    configImages: {
+      "Standard Collar|Long":  "/styled/summer-blue-linen/standard-long.png",
+      "Standard Collar|Short": "/styled/summer-blue-linen/standard-short.png",
+      "Chinese Collar|Long":   "/styled/summer-blue-linen/chinese-long.png",
+      "Chinese Collar|Short":  "/styled/summer-blue-linen/chinese-short.png",
+      "Cuban Collar|Long":     "/styled/summer-blue-linen/cuban-long.png",
+      "Cuban Collar|Short":    "/styled/summer-blue-linen/cuban-short.jpg",
+    },
     featured: true,
   },
   {
@@ -215,6 +240,14 @@ export const fabrics: Fabric[] = [
       "/styled/white-cotton-eyelet/2b.jpg",
       "/styled/white-cotton-eyelet/3b.png",
     ],
+    configImages: {
+      "Standard Collar|Long":  "/styled/white-cotton-eyelet/standard-long.png",
+      "Standard Collar|Short": "/styled/white-cotton-eyelet/standard-short.png",
+      "Chinese Collar|Long":   "/styled/white-cotton-eyelet/chinese-long.png",
+      "Chinese Collar|Short":  "/styled/white-cotton-eyelet/chinese-short.png",
+      "Cuban Collar|Long":     "/styled/white-cotton-eyelet/cuban-long.png",
+      "Cuban Collar|Short":    "/styled/white-cotton-eyelet/cuban-short.png",
+    },
     featured: true,
   },
 ];

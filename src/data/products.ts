@@ -158,9 +158,12 @@ export const fabrics: Fabric[] = [
       "/fabrics/ikat-bw-2b.png",
     ],
     styledImages: [
-      "/styled/black-white-ikat/1b.png",
-      "/styled/black-white-ikat/2b.png",
-      "/styled/black-white-ikat/3b.png",
+      "/styled/black-white-ikat/standard-long.png",
+      "/styled/black-white-ikat/standard-short.png",
+      "/styled/black-white-ikat/chinese-long.png",
+      "/styled/black-white-ikat/chinese-short.png",
+      "/styled/black-white-ikat/cuban-long.png",
+      "/styled/black-white-ikat/cuban-short.png",
     ],
     configImages: {
       "Standard Collar|Long":  "/styled/black-white-ikat/standard-long.png",
@@ -184,9 +187,12 @@ export const fabrics: Fabric[] = [
       "/fabrics/chikankari-gray-2b.png",
     ],
     styledImages: [
-      "/styled/gray-chikankari/1b.png",
-      "/styled/gray-chikankari/2b.png",
-      "/styled/gray-chikankari/3b.png",
+      "/styled/gray-chikankari/standard-long.png",
+      "/styled/gray-chikankari/standard-short.png",
+      "/styled/gray-chikankari/chinese-long.png",
+      "/styled/gray-chikankari/chinese-short.png",
+      "/styled/gray-chikankari/cuban-long.png",
+      "/styled/gray-chikankari/cuban-short.png",
     ],
     configImages: {
       "Standard Collar|Long":  "/styled/gray-chikankari/standard-long.png",
@@ -210,9 +216,12 @@ export const fabrics: Fabric[] = [
       "/fabrics/linen-blue-2c.png",
     ],
     styledImages: [
-      "/styled/summer-blue-linen/1b.png",
-      "/styled/summer-blue-linen/2b.png",
-      "/styled/summer-blue-linen/3b.jpg",
+      "/styled/summer-blue-linen/standard-long.png",
+      "/styled/summer-blue-linen/standard-short.png",
+      "/styled/summer-blue-linen/chinese-long.png",
+      "/styled/summer-blue-linen/chinese-short.png",
+      "/styled/summer-blue-linen/cuban-long.png",
+      "/styled/summer-blue-linen/cuban-short.jpg",
     ],
     configImages: {
       "Standard Collar|Long":  "/styled/summer-blue-linen/standard-long.png",
@@ -236,9 +245,12 @@ export const fabrics: Fabric[] = [
       "/fabrics/eyelet-white-2b.png",
     ],
     styledImages: [
-      "/styled/white-cotton-eyelet/1b.png",
-      "/styled/white-cotton-eyelet/2b.jpg",
-      "/styled/white-cotton-eyelet/3b.png",
+      "/styled/white-cotton-eyelet/standard-long.png",
+      "/styled/white-cotton-eyelet/standard-short.png",
+      "/styled/white-cotton-eyelet/chinese-long.png",
+      "/styled/white-cotton-eyelet/chinese-short.png",
+      "/styled/white-cotton-eyelet/cuban-long.png",
+      "/styled/white-cotton-eyelet/cuban-short.png",
     ],
     configImages: {
       "Standard Collar|Long":  "/styled/white-cotton-eyelet/standard-long.png",

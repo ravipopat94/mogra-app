@@ -118,7 +118,7 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
             className={`text-[10px] uppercase tracking-widest transition-colors ${
               configImage
                 ? "text-muted hover:text-gold"
-                : "text-muted/40"
+                : "inline-block border border-muted/30 text-muted/50 px-3 py-1.5 hover:border-muted/50 hover:text-muted/70"
             }`}
           >
             {configImage ? "See it styled →" : "Want to see it styled? Select your collar style & sleeve length"}

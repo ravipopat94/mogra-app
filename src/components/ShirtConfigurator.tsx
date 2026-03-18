@@ -115,10 +115,10 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
                 setShowConfigHint(true);
               }
             }}
-            className={`text-[10px] uppercase tracking-widest transition-colors ${
+            className={`text-[10px] uppercase tracking-widest transition-colors px-3 py-1.5 border ${
               configImage
-                ? "text-muted hover:text-gold"
-                : "inline-block border border-muted/30 text-muted/50 px-3 py-1.5 hover:border-muted/50 hover:text-muted/70"
+                ? "border-muted text-muted hover:border-gold hover:text-gold"
+                : "border-muted/30 text-muted/50 hover:border-muted/50 hover:text-muted/70"
             }`}
           >
             {configImage ? "See it styled →" : "Want to see it styled? Select your collar style & sleeve length"}

@@ -63,7 +63,7 @@ export default function ImageGallery({ images, alt }: Props) {
         {images.length > 1 && (
           <>
             <button
-              onClick={prev}
+              onClick={(e) => { e.stopPropagation(); prev(); }}
               aria-label="Previous image"
               className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center border border-brand-border bg-background/80 text-foreground transition hover:bg-background"
             >
@@ -72,7 +72,7 @@ export default function ImageGallery({ images, alt }: Props) {
               </svg>
             </button>
             <button
-              onClick={next}
+              onClick={(e) => { e.stopPropagation(); next(); }}
               aria-label="Next image"
               className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center border border-brand-border bg-background/80 text-foreground transition hover:bg-background"
             >

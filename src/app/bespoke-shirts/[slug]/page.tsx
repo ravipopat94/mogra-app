@@ -131,8 +131,8 @@ export default async function ShirtProductPage({
             <h1 className="font-serif text-3xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
-            <p className="mt-2 font-serif text-xl font-semibold text-foreground">
-              ${STANDARD_PRICE}.00
+            <p className="mt-2 text-xs uppercase tracking-widest text-muted">
+              Starting at <span className="text-foreground">${STANDARD_PRICE}</span>
             </p>
           </div>
 
@@ -154,8 +154,8 @@ export default async function ShirtProductPage({
             <h1 className="hidden lg:block mb-2 font-serif text-4xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
-            <p className="hidden lg:block mb-1 font-serif text-2xl font-semibold text-foreground">
-              ${STANDARD_PRICE}.00
+            <p className="hidden lg:block mb-4 text-xs uppercase tracking-widest text-muted">
+              Starting at <span className="text-foreground">${STANDARD_PRICE}</span>
             </p>
             <FabricDescription text={fabric.description} />
 

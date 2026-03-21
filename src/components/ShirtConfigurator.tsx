@@ -95,13 +95,6 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
 
   return (
     <div>
-      {/* ── Starting price (until all options chosen) ── */}
-      {!canAdd && (
-        <p className="mb-5 text-xs uppercase tracking-widest text-muted">
-          Starting at <span className="text-foreground">${STANDARD_PRICE}</span>
-        </p>
-      )}
-
       {/* ── See it styled ── */}
       {configImages && (
         <div className="mb-5">

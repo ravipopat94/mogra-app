@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { fabrics, getFabricBySlug } from "@/data/products";
+import { fabrics, getFabricBySlug, STANDARD_PRICE } from "@/data/products";
 import ImageGallery from "@/components/ImageGallery";
 import ShirtConfigurator from "@/components/ShirtConfigurator";
 import FabricDescription from "@/components/FabricDescription";
@@ -131,6 +131,9 @@ export default async function ShirtProductPage({
             <h1 className="font-serif text-3xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
+            <p className="mt-2 font-serif text-xl font-semibold text-foreground">
+              ${STANDARD_PRICE}.00
+            </p>
           </div>
 
           {/* Left — image gallery (fabric swatches + first styled look) */}
@@ -148,9 +151,12 @@ export default async function ShirtProductPage({
             <p className="hidden lg:block mb-2 text-xs uppercase tracking-widest text-muted">
               {fabric.composition}
             </p>
-            <h1 className="hidden lg:block mb-1 font-serif text-4xl font-light tracking-wide text-foreground">
+            <h1 className="hidden lg:block mb-2 font-serif text-4xl font-light tracking-wide text-foreground">
               {fabric.name}
             </h1>
+            <p className="hidden lg:block mb-1 font-serif text-2xl font-semibold text-foreground">
+              ${STANDARD_PRICE}.00
+            </p>
             <FabricDescription text={fabric.description} />
 
             <div className="border-t border-brand-border my-6" />

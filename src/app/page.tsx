@@ -3,7 +3,18 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div className="flex-1 w-full flex flex-col items-center justify-center">
+    <div className="flex-1 w-full flex flex-col">
+      {/* Announcement bar */}
+      <div className="border-b border-brand-border py-2 px-4">
+        <p className="text-center text-[10px] uppercase tracking-widest text-muted">
+          Use code{" "}
+          <span className="text-gold font-medium tracking-widest">NEWCUSTOMER</span>
+          {" "}for 10% off your first order
+        </p>
+      </div>
+
+      {/* Centred hero */}
+      <div className="flex-1 flex items-center justify-center">
       <Link href="/bespoke-shirts" className="flex flex-col items-center gap-3 sm:gap-5">
         <div className="animate-mogra-spin">
           <Image
@@ -22,6 +33,7 @@ export default function HomePage() {
           shop now →
         </p>
       </Link>
+      </div>
     </div>
   );
 }

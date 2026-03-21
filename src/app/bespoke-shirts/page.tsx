@@ -59,6 +59,9 @@ export default function BespokeShirtsPage() {
                 className="mt-1 block text-[10px] uppercase tracking-widest text-muted/60 hover:text-gold transition-colors"
               />
             )}
+            <p className="mt-1 text-[10px] uppercase tracking-widest text-muted/40">
+              Starting at $50
+            </p>
           </div>
         ))}
       </div>

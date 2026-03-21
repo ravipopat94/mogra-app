@@ -259,7 +259,7 @@ export default function ShirtConfigurator({ fabricName, fabricSlug, configImages
           <p className="text-xs uppercase tracking-widest text-muted">
             {quantity > 1 ? `${quantity} × $${price}` : "Price"}
           </p>
-          <p className="font-serif text-2xl font-light text-foreground">
+          <p className="font-serif text-2xl font-semibold text-foreground">
             ${price * quantity}.00
           </p>
         </div>

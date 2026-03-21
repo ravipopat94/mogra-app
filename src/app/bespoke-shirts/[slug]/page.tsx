@@ -133,8 +133,14 @@ export default async function ShirtProductPage({
             </h1>
           </div>
 
-          {/* Left — image gallery */}
-          <ImageGallery images={fabric.images} alt={fabric.name} />
+          {/* Left — image gallery (fabric swatches + first styled look) */}
+          <ImageGallery
+            images={[
+              ...fabric.images,
+              ...(fabric.styledImages ? [fabric.styledImages[0]] : []),
+            ]}
+            alt={fabric.name}
+          />
 
           {/* Right — info + configurator */}
           <div>

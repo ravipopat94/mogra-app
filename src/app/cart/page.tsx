@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { WHATSAPP_NUMBER, CONTACT_EMAIL } from "@/lib/constants";
+import AddressAutocomplete from "@/components/AddressAutocomplete";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DISCOUNT_CODES: Record<string, number> = {
@@ -231,8 +232,11 @@ export default function CartPage() {
           <input value={email}   onChange={(e) => { setEmail(e.target.value); if (discountApplied) removeDiscount(); }}
                  placeholder="Email address"     maxLength={120} type="email"  className={inputCls} />
           <input value={phone}   onChange={(e) => setPhone(e.target.value)}   placeholder="Phone number"      maxLength={30}  type="tel"    className={inputCls} />
-          <textarea value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Shipping address" maxLength={300} rows={3}
-            className={inputCls + " resize-none"} />
+          <AddressAutocomplete
+            value={address}
+            onChange={setAddress}
+            className={inputCls}
+          />
         </div>
         {!canSubmit && (name || email || phone || address) && (
           <p className="mt-2 text-[10px] text-muted">Please fill in all fields with a valid email to continue.</p>

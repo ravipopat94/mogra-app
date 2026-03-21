@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { WHATSAPP_NUMBER, CONTACT_EMAIL } from "@/lib/constants";
-import AddressAutocomplete from "@/components/AddressAutocomplete";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DISCOUNT_CODES: Record<string, number> = {
@@ -26,7 +25,11 @@ function markEmailUsed(code: string, email: string) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(used));
 }
 
-interface Customer { name: string; email: string; phone: string; address: string; }
+interface Customer {
+  name: string; email: string; phone: string;
+  addressLine1: string; addressLine2: string;
+  city: string; state: string; country: string; postcode: string;
+}
 
 function buildOrderMessage(
   items: ReturnType<typeof useCart>["items"],
@@ -37,6 +40,13 @@ function buildOrderMessage(
 ) {
   const discountAmt = Math.round(subtotal * discountPct / 100);
   const finalTotal  = subtotal - discountAmt;
+
+  const addressLines = [
+    customer.addressLine1.trim(),
+    customer.addressLine2.trim(),
+    [customer.city.trim(), customer.state.trim()].filter(Boolean).join(", "),
+    [customer.postcode.trim(), customer.country.trim()].filter(Boolean).join(", "),
+  ].filter(Boolean).join("\n           ");
 
   const lines = items.map((item, i) =>
     `${i + 1}. ${item.fabricName}\n` +
@@ -50,7 +60,7 @@ function buildOrderMessage(
     `Name: ${customer.name.trim()}\n` +
     `Email: ${customer.email.trim()}\n` +
     `Phone: ${customer.phone.trim()}\n` +
-    `Shipping Address: ${customer.address.trim()}\n\n` +
+    `Shipping Address:\n           ${addressLines}\n\n` +
     `Order Summary:\n` +
     `─────────────────────\n` +
     lines.join("\n\n") +
@@ -66,10 +76,15 @@ export default function CartPage() {
   const { items, removeItem, updateQuantity, totalItems, totalPrice } = useCart();
 
   // Customer details
-  const [name,    setName]    = useState("");
-  const [email,   setEmail]   = useState("");
-  const [phone,   setPhone]   = useState("");
-  const [address, setAddress] = useState("");
+  const [name,         setName]         = useState("");
+  const [email,        setEmail]        = useState("");
+  const [phone,        setPhone]        = useState("");
+  const [addressLine1, setAddressLine1] = useState("");
+  const [addressLine2, setAddressLine2] = useState("");
+  const [city,         setCity]         = useState("");
+  const [addrState,    setAddrState]    = useState("");
+  const [country,      setCountry]      = useState("");
+  const [postcode,     setPostcode]     = useState("");
 
   // Discount
   const [codeInput,      setCodeInput]      = useState("");
@@ -83,8 +98,9 @@ export default function CartPage() {
 
   const discountAmt  = Math.round(totalPrice * discountPct / 100);
   const finalTotal   = totalPrice - discountAmt;
-  const customer     = { name, email, phone, address };
-  const canSubmit    = name.trim() && EMAIL_RE.test(email) && phone.trim() && address.trim();
+  const customer     = { name, email, phone, addressLine1, addressLine2, city, state: addrState, country, postcode };
+  const canSubmit    = name.trim() && EMAIL_RE.test(email) && phone.trim() &&
+                       addressLine1.trim() && city.trim() && addrState.trim() && country.trim() && postcode.trim();
   const message      = buildOrderMessage(items, totalPrice, customer, discountCode, discountPct);
   const whatsappUrl  = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   const emailUrl     = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Mogra Shirt Order")}&body=${encodeURIComponent(message)}`;
@@ -231,14 +247,19 @@ export default function CartPage() {
           <input value={name}    onChange={(e) => setName(e.target.value)}    placeholder="Full name"         maxLength={80}  className={inputCls} />
           <input value={email}   onChange={(e) => { setEmail(e.target.value); if (discountApplied) removeDiscount(); }}
                  placeholder="Email address"     maxLength={120} type="email"  className={inputCls} />
-          <input value={phone}   onChange={(e) => setPhone(e.target.value)}   placeholder="Phone number"      maxLength={30}  type="tel"    className={inputCls} />
-          <AddressAutocomplete
-            value={address}
-            onChange={setAddress}
-            className={inputCls}
-          />
+          <input value={phone}        onChange={(e) => setPhone(e.target.value)}        placeholder="Phone number"         maxLength={30}  type="tel"  className={inputCls} />
+          <input value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} placeholder="Address line 1"        maxLength={120}             className={inputCls} />
+          <input value={addressLine2} onChange={(e) => setAddressLine2(e.target.value)} placeholder="Address line 2 (optional)" maxLength={120}          className={inputCls} />
+          <div className="grid grid-cols-2 gap-3">
+            <input value={city}      onChange={(e) => setCity(e.target.value)}      placeholder="City"             maxLength={80}  className={inputCls} />
+            <input value={addrState} onChange={(e) => setAddrState(e.target.value)} placeholder="State / Province" maxLength={80}  className={inputCls} />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <input value={postcode}  onChange={(e) => setPostcode(e.target.value)}  placeholder="Postcode / ZIP"   maxLength={20}  className={inputCls} />
+            <input value={country}   onChange={(e) => setCountry(e.target.value)}   placeholder="Country"          maxLength={60}  className={inputCls} />
+          </div>
         </div>
-        {!canSubmit && (name || email || phone || address) && (
+        {!canSubmit && (name || email || phone || addressLine1 || city) && (
           <p className="mt-2 text-[10px] text-muted">Please fill in all fields with a valid email to continue.</p>
         )}
       </div>
